@@ -26,21 +26,24 @@ module.exports = () => {
       var scriptId = firstBreak.callFrames[0].location.scriptId,
           url = dbugger.scripts.findScriptByID(scriptId).url
 
-      setBreakPointsOnFile(url, dbugger);
+      // setBreakPointsOnFile(url, dbugger);
 
       dbugger.on('Debugger.paused', function(b) {
-        frames.push(b);
-        dbugger.resume(null, function() {});
+        if(b.callFrames[0].location.scriptId === scriptId){
+          frames.push(b);
+        }
+        dbugger.stepInto(null, function() {});
       })
-      dbugger.resume(null, function() {});
+      dbugger.stepInto(null, function() {
+        console.log('here', arguments)
+      });
 
     });
 
     dbugger.on('error', reject);
     setTimeout(function() {
       resolve(frames);
-    }, 1500);
+    }, 2000);
     
   })
 }
-

@@ -1,18 +1,14 @@
-
-
-function* naturalNumbers() {
-  let i = 0;
-  while(true){ 
-    yield i++
-  }
+function logger() {
+  console.log('LOGS', Date.now(), ...arguments);
 }
 
-const gen = naturalNumbers();
+function add(a, b) {
+  return a + b;
+}
 
-gen.next();
-gen.next();
-gen.next();
-gen.next();
-
-
-
+logger(add(Math.random(), Math.random()));
+logger(add(Math.random(), Math.random()));
+logger(add(Math.random(), Math.random()));
+logger(add(Math.random(), Math.random()));
+logger(add(Math.random(), Math.random()));
+logger(add(Math.random(), Math.random()));

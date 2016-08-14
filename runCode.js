@@ -8,10 +8,14 @@ module.exports = code => {
       if(err) { return reject(err); }
     });
     setTimeout(function() {
-      var frames = require('./debugger')();
+      var frames = require('./debugger')()
+        // .then(function() {
+        //   child.kill('SIGHUP');
+        // });
       frames.then(resolve);
       frames.catch(reject);
-    }, 100)
+
+    }, 120)
 
   });
 }
