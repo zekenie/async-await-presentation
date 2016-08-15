@@ -1,14 +1,21 @@
-function logger() {
-  console.log('LOGS', Date.now(), ...arguments);
+function* addOne(i) { yield i + 1;
+                    var foo = 3;
+                    var baz = 2;}
+
+function* naturalNumbers () {
+  i = 0;
+  while(true) {
+    yield* addOne(i);
+      var j =2
+    var j =2
+      var j =2
+        var j =2
+  }
+
 }
 
-function add(a, b) {
-  return a + b;
-}
+const genObj = naturalNumbers();
 
-logger(add(Math.random(), Math.random()));
-logger(add(Math.random(), Math.random()));
-logger(add(Math.random(), Math.random()));
-logger(add(Math.random(), Math.random()));
-logger(add(Math.random(), Math.random()));
-logger(add(Math.random(), Math.random()));
+genObj.next();
+genObj.next();
+genObj.next();

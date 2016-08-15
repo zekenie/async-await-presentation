@@ -9,7 +9,7 @@ app.use(bodyParser.json());
 
 app.post('/', (req, res, next) => {
   runCode(req.body.code)
-    .then(frames => res.json(frames))
+    .then(frames => res.json({}))
     .catch(next);
 });
 

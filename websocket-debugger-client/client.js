@@ -1,4 +1,3 @@
-const WebSocket = require('ws');
 const log = console.log.bind(console, 'DebuggerClient: ');
 
 class Command {
@@ -33,6 +32,7 @@ module.exports = class DebuggerClient {
   }
 
   _handleMessage(message) {
+    message = message.data;
     const resp = JSON.parse(message);
     if(resp.id) {
       this._getCommandById(resp.id).processResponse(resp);
@@ -48,12 +48,12 @@ module.exports = class DebuggerClient {
 
   _setupWebSocket() {
     this.ws = new WebSocket(this.url);
-    this.ws.on('message', this._handleMessage.bind(this));
-    this.ws.on('open', () => {
+    this.ws.onmessage = this._handleMessage.bind(this);
+    this.ws.onopen =  () => {
       this.connected = true;
       log('channel open');
       this._drainQueue();
-    })
+    }
   }
 
   _drainQueue() {

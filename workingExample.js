@@ -20,13 +20,15 @@ function async(generatorFunc) {
   }
 }
 
-const getUser = id => Promise.resolve({
-  name: 'Zeke',
-  email: 'zeke@fullstackacademy.com',
-  getMail: () => Promise.resolve([])
-});
+function getUser(id) {
+  return Promise.resolve({
+    name: 'Zeke',
+    email: 'zeke@fullstackacademy.com',
+    getMail: () => Promise.resolve([])
+  });
+}
 
-const doStuffWithMail = async(function*(id) {
+const doStuffWithMail = async(function* mailGenerator(id) {
   const user = yield getUser(id);
   const mail = yield user.getMail();
   return mail.map(() => {})

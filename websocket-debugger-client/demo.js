@@ -8,6 +8,15 @@ class Breakpoint {
     this.time = Date.now();
   }
 
+  get functionNames() {
+    return this.callFrames
+        .map(cf => cf.functionName);
+  }
+
+  matches(otherBreakpoint) {
+    return this.functionNames.toString() === otherBreakpoint.functionNames.toString();
+  }
+
   get location() {
     return this.callFrames[0].location;
   }
@@ -16,7 +25,6 @@ class Breakpoint {
 module.exports = class Demo {
   constructor(onComplete) {
     this.frames = [];
-    this.importantFrames = [];
     this.scriptId = null;
     this.onComplete = onComplete || function() {};
     this.client = new Client('ws://localhost:9229/node')
@@ -41,20 +49,26 @@ module.exports = class Demo {
 
   finish() {
     this.client.close();
-    this.onComplete(this.importantFrames, this.frames);
+    this.onComplete(this.frames);
     log('~~~ done ~~~');
     log('frames caputred', this.frames.length);
-    log('important frames caputred', this.importantFrames.length);
   }
 
   pause(params) {
+    const idx = this.frames.length;
     const breakpoint = new Breakpoint(params);
+    breakpoint.i = idx;
     if(!this.scriptId) {
       this.scriptId = breakpoint.location.scriptId;
     }
+    if(idx === 0) { breakpoint.newFunction = true; }
+    if(idx > 0 && breakpoint.callFrames.length !== this.frames[idx-1].callFrames.length) {
+      breakpoint.newFunction = true;
+    }
+
     this.frames.push(breakpoint);
     if(this.scriptId === breakpoint.location.scriptId) {
-      this.importantFrames.push(breakpoint);
+      breakpoint.important = true;
     }
 
     setTimeout(() => {

@@ -1,1 +1,43 @@
 @import '~codemirror/lib/codemirror.css';
+@import '~basscss/css/basscss.css';
+@import './variables.scss';
+* {
+  box-sizing: border-box;
+}
+
+.CodeMirror {
+  border: 1px solid #eee;
+  height: auto;
+}
+
+.frames {
+  &::before, &::after {
+    content: "";
+    display: block;
+    clear: both;
+  }
+  .frame {
+    float: left;
+    cursor: pointer;
+    background: $blue;
+    margin: 2px;
+    height: 15px;
+    &:hover {
+      border-top: 2px solid $gray;
+    }
+    &.important {
+      min-width:10px;
+      background: $red;
+    }
+    &.selected {
+      border-radius: 999px;
+      background: $olive;
+    }
+    &.new-function {
+      transform: rotate(45deg);
+    }
+    &.not-important {
+      width:3px;
+    }
+  }
+}

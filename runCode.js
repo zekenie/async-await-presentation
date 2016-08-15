@@ -4,18 +4,14 @@ const fs = require('fs');
 module.exports = code => {
   return new Promise(function(resolve, reject) {
     fs.writeFileSync('./codeInput.js', code);
-    var child = exec(`node --debug-brk=5000 ./codeInput`, function(err, stdout) {
+    // node --inspect --debug-brk workingExample.js
+    var child = exec(`node --inspect --debug-brk ./codeInput`, function(err, stdout) {
       if(err) { return reject(err); }
     });
     setTimeout(function() {
-      var frames = require('./debugger')()
-        // .then(function() {
-        //   child.kill('SIGHUP');
-        // });
-      frames.then(resolve);
-      frames.catch(reject);
+      resolve();
 
-    }, 120)
+    }, 10)
 
   });
 }
