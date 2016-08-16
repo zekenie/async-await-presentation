@@ -13,7 +13,7 @@ module.exports = code => {
       'node --inspect --debug-brk file.js &', // start debugger process
       'node /debugger-client/writer',
       'exit'
-    ].join(' && ');
+    ].join('; ');
 
     log('assembled command', command)
 
