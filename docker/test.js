@@ -1,0 +1,1 @@
+require('./')('console.log("foo")').then(console.log, console.error);

@@ -8,7 +8,7 @@ module.exports = code => {
   return new Promise((resolve, reject) => {
 
     const command = [
-      'cd /Development'
+      'cd /Development',
       `echo \"${code}\" > file.js`,
       'node --inspect --debug-brk file.js &> /dev/null', // start debugger process
       'node /debugger-client/writer'
