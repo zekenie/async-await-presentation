@@ -1,5 +1,5 @@
 const tar = require('tar-stream');
-
+const concat = require('stream-concat-promise/mixed');
 const log = console.log.bind(console, 'Docker file reader >>');
 
 function readFilesFromDocker(container, path) {
