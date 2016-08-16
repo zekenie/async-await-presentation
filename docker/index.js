@@ -16,7 +16,7 @@ module.exports = code => {
 
     const stdoutStream = new streamBuffers.WritableStreamBuffer();
 
-    client.run('e0b7ac85b585', ["bash", "-c", command], stdoutStream, function(err, data, container) {
+    client.run('e3c389a0f137', ["bash", "-c", command], stdoutStream, function(err, data, container) {
       if(err) { return reject(err); }
       log('bash:', command);
 
