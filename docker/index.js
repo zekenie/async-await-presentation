@@ -36,7 +36,7 @@ module.exports = code => {
           return new Promise((removeResolve, removeReject) => {
             container.remove((err, resp) => {
               if(err) { return removeReject(err); }
-              resolve(resp);
+              removeResolve(resp);
             })
           });
         })

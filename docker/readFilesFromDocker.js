@@ -29,6 +29,10 @@ function readFilesFromDocker(container, path) {
       resolve(fileData);
     });
 
+    extract.on('error', function(e) {
+      reject(e);
+    });
+
 
   });
 }
