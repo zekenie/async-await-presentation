@@ -11,7 +11,8 @@ module.exports = code => {
       'cd /Development',
       `echo \"${code}\" > file.js`,
       'node --inspect --debug-brk file.js &> /dev/null', // start debugger process
-      'node /debugger-client/writer'
+      'node /debugger-client/writer',
+      'exit'
     ].join(' && ');
 
     log('assembled command', command)
