@@ -14,6 +14,8 @@ module.exports = code => {
       'node /debugger-client/writer'
     ].join(' && ');
 
+    log('assembled command', command)
+
     const stdoutStream = new streamBuffers.WritableStreamBuffer();
 
     client.run('e3c389a0f137', ["bash", "-c", command], stdoutStream, function(err, data, container) {
