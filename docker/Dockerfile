@@ -1,4 +1,4 @@
-FROM node:0.10
+FROM node:latest
 MAINTAINER Zeke Nierenberg hampzan09@gmail.com
 RUN mkdir /Development
 RUN mkdir /debugger-client
