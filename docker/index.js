@@ -9,8 +9,8 @@ module.exports = code => {
 
     const command = [
       'cd /Development',
-      `echo \"${code}\" > file.js`,
-      'node --inspect --debug-brk file.js &> /dev/null', // start debugger process
+      `echo "${code.replace(new RegExp('"', 'g'), '\\"')}" > file.js`,
+      'node --inspect --debug-brk file.js &', // start debugger process
       'node /debugger-client/writer',
       'exit'
     ].join(' && ');
