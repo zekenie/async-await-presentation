@@ -7,37 +7,80 @@
 
 body {
   font-family: 'Courier New';
+  margin:0;
+}
+
+.btn {
+  background: none;
+  border: 1px solid $orange;
+  border-radius: 40px;
+  color: $orange;
 }
 
 .CodeMirror {
-  border: 1px solid #eee;
   height: auto;
+}
+
+.code-container {
+  max-height: 94vh;
+  overflow-y: scroll;
+  border: 1px solid $gray;
 }
 
 .muted {
   color: $silver;
 }
 
+#stack {
+  width:22%;
+  border-radius: 3px;
+  position:fixed;
+  bottom:10px;
+  right: 10px;
+  border: 1px solid $gray; 
+  text-align: right;
+  div {
+    padding: 2px;
+    font-size: 9pt;
+    border-bottom: 1px solid $gray;
+    margin-bottom: 2px;
+  }
+}
+
 .frames {
-  height: 100vh;
+  height: 94vh;
   overflow-y: scroll;
   .frame {
-    cursor: pointer;
-    background: $silver;
+    transition: background-color, 0.3s;
+    padding: 2px;
     border-radius: 3px;
-    transition: border-right 0.2s;
-    margin-bottom: 2px;
-    height: 3px;
+    margin-bottom:2px;
+    .frame-bar {
+      background: $silver;
+      float: right;
+      border-radius: 3px;
+      height: 3px;
+      &.important {
+        height: 18px;
+        font-size: 9pt;
+        padding: 5px;
+        color: white;
+        background: $aqua;
+      }
 
-    &.important {
-      height: 20px;
-      font-size: 9pt;
-      padding: 5px;
-      color: white;
-      background: $aqua;
+      
     }
-    &.selected {
-      border-right: 6px solid $teal;
+
+    cursor: pointer;
+    &:hover {
+      .muted { color: white; }
+      background: $silver;
+      .frame-bar {
+        background: white;
+        &.important {
+          background: $aqua;
+        }
+      }
     }
 
 

@@ -17,7 +17,8 @@ class StackVisualizer extends React.Component {
         callFrames: []
       }],
       frame: 0, 
-      loading: false
+      loading: false,
+      dirty: false
     }
   }
 
@@ -64,6 +65,10 @@ class StackVisualizer extends React.Component {
       const line = codeMirror.doc.getCursor().line;
       this.setState({ line: line + 1 });
     });
+
+    this.codeMirror.on('change', () => {
+      this.setState({ dirty: true });
+    })
   }
 
   reset() {
@@ -72,7 +77,8 @@ class StackVisualizer extends React.Component {
         callFrames: []
       }],
       frame: 0, 
-      loading: false
+      loading: false,
+      dirty: false
     });
   }
 
@@ -96,26 +102,30 @@ class StackVisualizer extends React.Component {
   render() {
     return (
       <div className="clearfix">
-        <Codemirror
-          className="col col-5 p1"
-          ref={el => this.codeEditor = el} 
-          value={this.state.code} 
-          options={{ lineNumbers: true }}
-          onChange={this.updateCode.bind(this)} />
-        <div className="col col-3 p1">
-          <button onClick={this.getFrames.bind(this)}>Get Frames</button>
+        <div className="code-container col col-5 mx1">
+          <Codemirror
+            ref={el => this.codeEditor = el} 
+            value={this.state.code} 
+            options={{ lineNumbers: true }}
+            onChange={this.updateCode.bind(this)} />
+        </div>
+        <div className="col col-4 px2">
+          { this.state.dirty ? 
+            <button className="mx1 p1 btn col-12" onClick={this.getFrames.bind(this)}>Get Frames</button>
+            : ''
+          }
 
-          <div className={ this.state.loading ? '' : 'hide'}>Loading...</div>
+          <div className={ this.state.loading ? 'center p1' : 'hide'}>Loading...</div>
 
-
-          <FrameVisualization
-            className={ this.state.frames.length > 1 ? '' : 'hide'}
-            setFrame={this.setFrame.bind(this)}
-            frame={this.state.frame}
-            frames={this.state.frames}/>
+          <div className={ this.state.frames.length > 1 ? '' : 'hide'}>
+            <FrameVisualization
+              setFrame={this.setFrame.bind(this)}
+              frame={this.state.frame}
+              frames={this.state.frames}/>
+          </div>
 
         </div>
-        <div className="col col-3 01">
+        <div id="stack" className="">
           {
             this.state.frames[this.state.frame].callFrames
               .map((frame,i) => <div key={i}>{frame.functionName}</div>)
