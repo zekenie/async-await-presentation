@@ -14,34 +14,32 @@ body {
   height: auto;
 }
 
+.muted {
+  color: $silver;
+}
+
 .frames {
-  &::before, &::after {
-    content: "";
-    display: block;
-    clear: both;
-  }
+  height: 100vh;
+  overflow-y: scroll;
   .frame {
-    float: left;
     cursor: pointer;
-    background: $blue;
-    margin: 2px;
-    height: 15px;
-    &:hover {
-      border-top: 2px solid $gray;
-    }
+    background: $silver;
+    border-radius: 3px;
+    transition: border-right 0.2s;
+    margin-bottom: 2px;
+    height: 3px;
+
     &.important {
-      min-width:10px;
-      background: $red;
+      height: 20px;
+      font-size: 9pt;
+      padding: 5px;
+      color: white;
+      background: $aqua;
     }
     &.selected {
-      border-radius: 999px;
-      background: $olive;
+      border-right: 6px solid $teal;
     }
-    &.new-function {
-      transform: rotate(45deg);
-    }
-    &.not-important {
-      width:3px;
-    }
+
+
   }
 }

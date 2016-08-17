@@ -16,7 +16,8 @@ class StackVisualizer extends React.Component {
       frames: [{
         callFrames: []
       }],
-      frame: 0
+      frame: 0, 
+      loading: false
     }
   }
 
@@ -81,15 +82,24 @@ class StackVisualizer extends React.Component {
     });
   }
 
+  reset() {
+    this.setState({
+      frames: [{
+        callFrames: []
+      }],
+      frame: 0, 
+      loading: false
+    });
+  }
+
   getFrames() {
+    this.reset();
+    this.setState({ loading: true })
     return serverRequest.post('http://104.131.79.144', {
       body: { code: this.state.code }
     })
     .then(frames => {
-      this.setState({ frames });
-    })
-    .then(() => {
-      console.log(this.state.frames);
+      this.setState({ frames, loading: false });
     });
   }
 
@@ -108,8 +118,10 @@ class StackVisualizer extends React.Component {
           value={this.state.code} 
           options={{ lineNumbers: true }}
           onChange={this.updateCode.bind(this)} />
-        <div className="col col-5 p1">
+        <div className="col col-3 p1">
           <button onClick={this.getFrames.bind(this)}>Get Frames</button>
+
+          <div className={ this.state.loading ? '' : 'hide'}>Loading...</div>
 
           <div className={ this.state.frames.length > 1 ? '' : 'hide'}>
             <div>
@@ -125,7 +137,7 @@ class StackVisualizer extends React.Component {
           </div>
 
         </div>
-        <div className="col col-2 01">
+        <div className="col col-3 01">
           {
             this.state.frames[this.state.frame].callFrames
               .map((frame,i) => <div key={i}>{frame.functionName}</div>)
