@@ -66,6 +66,7 @@ module.exports = class DebuggerClient {
   _send(command) {
     command.id = this.commands.length + 1;
     this.commands.push(command);
+    log('sending', command);
     this.ws.send(command.json(), err => log.bind(null, 'ERROR> '));
   }
 

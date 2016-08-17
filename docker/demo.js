@@ -34,6 +34,7 @@ module.exports = class Demo {
       .listen('Debugger.paused', this.pause.bind(this));
 
     this.listenForClose();
+    this.next();
   }
 
   listenForClose() {
@@ -73,7 +74,7 @@ module.exports = class Demo {
 
     setTimeout(() => {
       this.next();
-    }, 1);
+    }, 3);
   }
 
   next() {
