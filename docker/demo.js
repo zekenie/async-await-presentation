@@ -41,30 +41,25 @@ module.exports = class Demo {
     const interval = setInterval(() => {
       const ultimate = this.frames[this.frames.length - 1];
       const delta = Date.now() - ultimate.time;
-      if(this.client.connected && delta > 800) {
+      if(this.client.connected && delta > 500) {
         clearInterval(interval);
         this.finish();
       }
-    }, 800);
+    }, 500);
   }
 
   finish() {
     this.client.close();
     this.onComplete(this.frames);
     log('~~~ done ~~~');
-    log('frames caputred', this.frames.length);
+    log('frames captured', this.frames.length);
   }
 
   pause(params) {
     const idx = this.frames.length;
     const breakpoint = new Breakpoint(params);
-    breakpoint.i = idx;
     if(!this.scriptId) {
       this.scriptId = breakpoint.location.scriptId;
-    }
-    if(idx === 0) { breakpoint.newFunction = true; }
-    if(idx > 0 && breakpoint.callFrames.length !== this.frames[idx-1].callFrames.length) {
-      breakpoint.newFunction = true;
     }
 
     this.frames.push(breakpoint);
@@ -74,7 +69,7 @@ module.exports = class Demo {
 
     setTimeout(() => {
       this.next();
-    }, 3);
+    }, 2);
   }
 
   next() {
