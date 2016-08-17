@@ -3,7 +3,6 @@ const ReactDom = require('react-dom');
 const Codemirror = require('react-codemirror');
 const FrameVisualization = require('./frameVisualization');
 const serverRequest = require('./serverRequest');
-const Demo = require('../websocket-debugger-client/demo');
 
 require('codemirror/mode/javascript/javascript');
 
@@ -74,15 +73,8 @@ class StackVisualizer extends React.Component {
   }
 
   getFrames() {
-    return serverRequest.post('/', {
+    return serverRequest.post('http://104.131.79.144', {
       body: { code: this.state.code }
-    })
-    .then(() => {
-      return new Promise((resolve, reject) => {
-        new Demo(frames => {
-          resolve(frames);
-        });
-      });
     })
     .then(frames => {
       this.setState({ frames });
