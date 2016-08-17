@@ -40,11 +40,11 @@ module.exports = class Demo {
     const interval = setInterval(() => {
       const ultimate = this.frames[this.frames.length - 1];
       const delta = Date.now() - ultimate.time;
-      if(this.client.connected && delta > 300) {
+      if(this.client.connected && delta > 800) {
         clearInterval(interval);
         this.finish();
       }
-    }, 300);
+    }, 800);
   }
 
   finish() {

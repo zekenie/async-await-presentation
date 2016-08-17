@@ -44,19 +44,28 @@ class StackVisualizer extends React.Component {
     this.setFrame(this.state.frame + direction);
   }
 
+  isUserCode(location) {
+    return this.state.frames[0].callFrames[0].location.scriptId === location.scriptId;
+  }
+
   setFrame(frameNumber) {
     const location = this.state.frames[frameNumber].callFrames[0].location;
-    this.codeMirror.focus();
-    // this.codeMirror.setCursor(location.lineNumber, location.columnNumber);
-    this.codeMirror.setSelection({
-      line: location.lineNumber,
-      ch: 0
-    }, {
-      line: location.lineNumber,
-      ch: this.codeMirror.getLine(location.lineNumber).length
-    }, {
-      scroll: true
-    });
+    this.codeMirror.setSelection({ line: 0, ch: 0}, { line: 0, ch: 0 });
+    if(this.isUserCode(location)) {
+      const line = this.codeMirror.getLine(location.lineNumber);
+      if(line) {
+        this.codeMirror.focus();
+        this.codeMirror.setSelection({
+          line: location.lineNumber,
+          ch: 0
+        }, {
+          line: location.lineNumber,
+          ch: line.length
+        }, {
+          scroll: true
+        });
+      }
+    }
     this.setState({ frame: frameNumber });
   }
 
