@@ -37,7 +37,7 @@ module.exports = class Demo {
 
     this.listenForClose();
 
-    this.next();
+    this.stepInto();
   }
 
   consoleData(params) {
@@ -71,17 +71,26 @@ module.exports = class Demo {
     }
 
     this.frames.push(breakpoint);
-    if(this.scriptId === breakpoint.location.scriptId) {
-      breakpoint.important = true;
-    }
+
+    const important = this.scriptId === breakpoint.location.scriptId;
+
+      breakpoint.important = important;
 
     setTimeout(() => {
-      this.next();
+      if(important) {
+        this.stepInto();
+      } else {
+        this.stepOver();
+      }
     }, 2);
   }
 
-  next() {
+  stepInto() {
     this.client.command('Debugger.stepInto');
+  }
+
+  stepOver() {
+    this.client.command('Debugger.stepOver');
   }
 }
 
