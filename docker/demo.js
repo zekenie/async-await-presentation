@@ -6,6 +6,7 @@ class Breakpoint {
   constructor(params) {
     Object.assign(this, params);
     this.time = Date.now();
+    this.consoleMessages = [];
   }
 
   get functionNames() {
@@ -31,10 +32,19 @@ module.exports = class Demo {
       .command('Debugger.enable')
       .command('Runtime.enable')
       .command('Runtime.run')
-      .listen('Debugger.paused', this.pause.bind(this));
+      .listen('Debugger.paused', this.pause.bind(this))
+      .listen('Runtime.consoleAPICalled', this.consoleData.bind(this));
 
     this.listenForClose();
+    this.listenForConsole();
+
+
     this.next();
+  }
+
+  consoleData(params) {
+    const frame = this.frames[this.frames.length];
+    frame.consoleMessages.push(params);
   }
 
   listenForClose() {

@@ -67,6 +67,12 @@ body {
         color: white;
         background: $aqua;
       }
+      &.selected {
+        background: white;
+        &.important {
+          background: $aqua;
+        }
+      }
 
       
     }
@@ -75,12 +81,6 @@ body {
     &:hover {
       .muted { color: white; }
       background: $silver;
-      .frame-bar {
-        background: white;
-        &.important {
-          background: $aqua;
-        }
-      }
     }
 
 
