@@ -14,37 +14,58 @@ const classNames = (frame, props, i) => {
 }
 
 
-module.exports = props => {
-  let indentFactor = 0;
-  let sameIndent = false;
-  return (
-    <div className="frames mt1">
-      {
-        props.frames.map((frame, i) => {
-          if(i > 1) {
-            sameIndent = frame.callFrames.length === props.frames[i-1].callFrames.length
-            indentFactor += frame.callFrames.length - props.frames[i-1].callFrames.length;
-            if(indentFactor < 0) { indentFactor = 0; }
-          }
-          return (
-                  <div
-                    key={i}
-                    className="frame clearfix"
-                    onMouseEnter={() => props.setFrame(i)}>
-                    <span className="left">
-                      { frame.important && !sameIndent ? 
-                          frame.callFrames[0].functionName  || <span className="muted small">(annon)</span>
-                          : '' }
-                    </span>
-                    <div
-                      style={{ width: (5 + (indentFactor * 11)) + 'px' }}
-                      className={classNames(frame, props, i)}>
-                        
-                    </div>
-                  </div>
-                  )
-        })
-      }
-    </div>
-  )
-};
+module.exports = class FrameVisualization extends React.Component {
+  constructor(props) { 
+    super(props);
+    this.state = {
+      excludeNodeFrames: false
+    };
+  }
+
+  handleExcludeToggle(e) {
+    this.setState({ excludeNodeFrames: !this.state.excludeNodeFrames });
+  }
+
+  render() {
+    let indentFactor = 0;
+    let sameIndent = false;
+    return (
+      <div className="frames mt1">
+        <div class="clearfix">
+          <div className="right">
+            <span className="muted">Exclude Node.js frames</span>
+            <input type="checkbox" onClick={this.handleExcludeToggle.bind(this)}/>
+          </div>
+        </div>
+        {
+          this.props.frames
+            .filter(frame => !this.state.excludeNodeFrames || frame.important)
+            .map((frame, i) => {
+              if(i > 1) {
+                sameIndent = frame.callFrames.length === this.props.frames[i-1].callFrames.length
+                indentFactor += frame.callFrames.length - this.props.frames[i-1].callFrames.length;
+                if(indentFactor < 0) { indentFactor = 0; }
+              }
+              return (
+                      <div
+                        key={i}
+                        className="frame clearfix"
+                        onMouseEnter={() => this.props.setFrame(i)}>
+                        <span className="left">
+                          { frame.important && !sameIndent ? 
+                              frame.callFrames[0].functionName  || <span className="muted small">(annon)</span>
+                              : '' }
+                        </span>
+                        <div
+                          style={{ width: (5 + (indentFactor * 11)) + 'px' }}
+                          className={classNames(frame, this.props, i)}>
+                            
+                        </div>
+                      </div>
+                      )
+            })
+        }
+      </div>
+    );
+  }
+}

@@ -83,11 +83,7 @@ module.exports = class Demo {
       breakpoint.important = important;
 
     setTimeout(() => {
-      if(breakpoint.functionNames[0] !== 'Console.log') {
-        this.stepInto();
-      } else {
-        this.stepOut();
-      }
+      this.stepInto();
     }, 2);
   }
 
