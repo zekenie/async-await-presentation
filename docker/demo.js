@@ -43,6 +43,7 @@ module.exports = class Demo {
   watchStdin() {
     process.stdin.setEncoding('utf8');
     process.stdin.on('data', msg => {
+      // if(this.frames.length === 0) { return; }
       const frame = this.frames[this.frames.length-1];
       if(frame) {
         frame.stdout += msg;
