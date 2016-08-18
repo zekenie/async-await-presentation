@@ -21,6 +21,13 @@ body {
   height: auto;
 }
 
+.stdout {
+  border-radius: 3px;
+  background: $navy;
+  color: $green;
+  font-weight: bold;
+}
+
 .code-container {
   max-height: 94vh;
   overflow-y: scroll;

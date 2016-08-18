@@ -1,6 +1,7 @@
 const React = require('react');
 const ReactDom = require('react-dom');
 const Codemirror = require('react-codemirror');
+const Stdout = require('./stdout');
 const FrameVisualization = require('./frameVisualization');
 const serverRequest = require('./serverRequest');
 
@@ -102,7 +103,7 @@ class StackVisualizer extends React.Component {
   render() {
     return (
       <div className="clearfix">
-        <div className="code-container col col-5 mx1">
+        <div className="code-container col col-5">
           <Codemirror
             ref={el => this.codeEditor = el} 
             value={this.state.code} 
@@ -125,7 +126,15 @@ class StackVisualizer extends React.Component {
           </div>
 
         </div>
-        <div id="stack" className="">
+
+        { this.state.frames.length > 1 ? 
+          <div className="col col-3">
+            <Stdout 
+              frames={this.state.frames} 
+              frame={this.state.frame}/>
+            </div> : '' }
+
+        <div id="stack">
           {
             this.state.frames[this.state.frame].callFrames
               .map((frame,i) => <div key={i}>{frame.functionName}</div>)

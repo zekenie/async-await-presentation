@@ -86,7 +86,7 @@ module.exports = class Demo {
       if(important) {
         this.stepInto();
       } else {
-        this.stepOver();
+        this.stepOut();
       }
     }, 2);
   }
@@ -95,8 +95,8 @@ module.exports = class Demo {
     this.client.command('Debugger.stepInto');
   }
 
-  stepOver() {
-    this.client.command('Debugger.stepOver');
+  stepOut() {
+    this.client.command('Debugger.stepOut');
   }
 }
 
