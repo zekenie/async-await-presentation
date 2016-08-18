@@ -5,8 +5,8 @@ const log = console.log.bind(console, 'DEMO > ');
 class Breakpoint {
   constructor(params) {
     Object.assign(this, params);
+    this.stdout = '';
     this.time = Date.now();
-    this.consoleMessages = [];
   }
 
   get functionNames() {
@@ -32,17 +32,19 @@ module.exports = class Demo {
       .command('Debugger.enable')
       .command('Runtime.enable')
       .command('Runtime.run')
-      .listen('Debugger.paused', this.pause.bind(this))
-      .listen('Runtime.consoleAPICalled', this.consoleData.bind(this));
+      .listen('Debugger.paused', this.pause.bind(this));
 
+    this.watchStdin();
     this.listenForClose();
 
     this.stepInto();
   }
 
-  consoleData(params) {
-    const frame = this.frames[this.frames.length];
-    frame.consoleMessages.push(params);
+  watchStdin() {
+    process.stdin.setEncoding('utf8');
+    process.stdin.on('data', msg => {
+      this.frames[this.frames.length].stdout += msg;
+    })
   }
 
   listenForClose() {
