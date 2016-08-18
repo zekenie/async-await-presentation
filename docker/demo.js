@@ -36,8 +36,6 @@ module.exports = class Demo {
       .listen('Runtime.consoleAPICalled', this.consoleData.bind(this));
 
     this.listenForClose();
-    this.listenForConsole();
-
 
     this.next();
   }
