@@ -6,12 +6,17 @@
   box-sizing: border-box;
 }
 
+
 .slide {
+  height: 98vh;
   .code-snippet {
     .syntax-highlighter {
-      font-size: 1.8em;
-      max-height: 90vh;
+      margin-top:10px;
+      max-height: 68vh;
     }
+  }
+  &:not(:first-child) {
+    border-top: 2px solid $teal;
   }
 }
 
@@ -21,6 +26,7 @@ body {
 }
 
 .btn {
+  cursor: pointer;
   background: none;
   border: 1px solid $orange;
   border-radius: 40px;

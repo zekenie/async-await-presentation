@@ -22,16 +22,20 @@ class Snippet extends React.Component {
     });
   }
 
+
+
   render() {
     return (
       <div className="code-snippet">
         { this.state.playing ? 
-          <StackVisualizer code={this.props.children} onCloseIt={this.close.bind(this)}/> 
+          <StackVisualizer
+            snippet={this}
+            code={this.props.children} /> 
           : ''}
+        <button onClick={this.play.bind(this)} className="btn">Play with it!</button>
         <SyntaxHighlighter className="syntax-highlighter" language='javascript' style={docco}>
           {this.props.children}
         </SyntaxHighlighter>
-        <button onClick={this.play.bind(this)} className="btn">Play with it!</button>
       </div>
     )
   }

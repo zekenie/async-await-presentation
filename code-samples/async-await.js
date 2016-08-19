@@ -5,7 +5,7 @@ async function spamFriends(userId) {
   return await Promise.all(gmailContacts.map(contact => Message.create({
     from: user,
     to: contact.email,
-    message: `I'd like to add you to my professional network!`
+    message: "I'd like to add you to my professional network!"
   })));
 }
 

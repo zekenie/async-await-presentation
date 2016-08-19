@@ -99,6 +99,7 @@ class StackVisualizer extends React.Component {
   render() {
     return (
       <div className="clearfix stack-visualizer">
+        <a className="close" onClick={this.props.snippet.close.bind(this.props.snippet)}>×</a>
         <div className="code-container col col-5">
           <Codemirror
             ref={el => this.codeEditor = el} 

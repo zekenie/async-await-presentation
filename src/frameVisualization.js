@@ -18,7 +18,7 @@ module.exports = class FrameVisualization extends React.Component {
   constructor(props) { 
     super(props);
     this.state = {
-      excludeNodeFrames: false
+      excludeNodeFrames: true
     };
   }
 
@@ -33,7 +33,7 @@ module.exports = class FrameVisualization extends React.Component {
       <div className="frames mt1">
         <div className="clearfix">
           <div className="right">
-            <span className="muted">Exclude Node.js frames</span>
+            <span className="muted">No Node.js frames?</span>
             <input type="checkbox" onClick={this.handleExcludeToggle.bind(this)}/>
           </div>
         </div>
