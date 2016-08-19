@@ -9,13 +9,13 @@ class StackVisualizer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      code: '// js code...',
+      code: props.code || `const {User, Message} = require('async-await-presentation-strawpeople/promises');`,
       frames: [{
         callFrames: []
       }],
       frame: 0, 
       loading: false,
-      dirty: false
+      dirty: true
     }
   }
 
@@ -98,7 +98,7 @@ class StackVisualizer extends React.Component {
 
   render() {
     return (
-      <div className="clearfix">
+      <div className="clearfix stack-visualizer">
         <div className="code-container col col-5">
           <Codemirror
             ref={el => this.codeEditor = el} 
@@ -140,3 +140,5 @@ class StackVisualizer extends React.Component {
     );
   }
 }
+
+module.exports = StackVisualizer;

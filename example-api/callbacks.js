@@ -17,7 +17,7 @@ class User {
 
   /** let's pretend this hit's gmail's server? */
   getGmailContacts(callback) {
-    process.nextTicket(() => {
+    process.nextTick(() => {
       callback(null, [
         new User({ email: 'friend@friend.friend' }),
         new User({ email: 'friend2@friend.friend' }),
