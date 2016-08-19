@@ -16,7 +16,7 @@ function sha1(input) {
   return shasum.digest('hex');
 }
 
-app.use((req, res, next) {
+app.use((req, res, next) => {
   if(!req.body.code) { return next(); }
   req.sha = sha1(req.body.code);
   res.set('Content-Type', 'text/json');
