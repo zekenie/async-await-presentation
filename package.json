@@ -10,6 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "async-await-presentation-strawpeople": "^1.0.0",
     "body-parser": "^1.15.2",
     "cors": "^2.7.1",
     "css-loader": "^0.23.1",
@@ -17,6 +18,7 @@
     "dockerode": "^2.3.0",
     "express": "^4.14.0",
     "json-fetcher": "^1.0.8",
+    "react-syntax-highlighter": "^2.2.0",
     "repl-promised": "^0.1.0",
     "stream-buffers": "^3.0.1",
     "stream-concat-promise": "^1.0.2",

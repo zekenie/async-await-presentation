@@ -12,26 +12,18 @@ function async(generatorFunc) {
      * @param  {*}         valForGenerator stick back in the generator
      * @return {Promise} value or promise for value
      */
-    function continuer(verb, valForGenerator) {
+    function continuer(valForGenerator) {
       let result;
-      try {
-        result = generator[verb](valForGenerator);
-      } catch (err) {
-        return Promise.reject(err);
-      }
+        result = generator.next(valForGenerator);
       if (result.done) {
-        return Promise.resolve(result.value);
+        return result.value;
       } else {
-        return Promise
-          .resolve(result.value)
-          .then(onFulfilled, onRejected);
+        return result.value
+          .then(continuer);
       }
     }
 
-    const onFulfilled = continuer.bind(null, "next");
-    const onRejected = continuer.bind(null, "throw");
-
-    return onFulfilled();
+    return continuer();
   }
 }
 
@@ -39,16 +31,17 @@ function dbQuery(thing) {
   return Promise.resolve(thing)
 }
 
-function async(getUser(id) {
+function getUser(id) {
   return dbQuery({
     name: 'Zeke',
     email: 'zeke@fullstackacademy.com',
     getMail: () => Promise.resolve(dbQuery([]))
   });
-})
+};
 
 const doStuffWithMail = async(function* mailGenerator(id) {
   const user = yield getUser(id);
+  console.log(`user name is ${user.name}`)
   const mail = yield user.getMail();
   const otherUserInfo = yield dbQuery(user, 44);
   return mail.map(() => {})

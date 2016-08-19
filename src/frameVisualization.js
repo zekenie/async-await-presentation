@@ -31,7 +31,7 @@ module.exports = class FrameVisualization extends React.Component {
     let sameIndent = false;
     return (
       <div className="frames mt1">
-        <div class="clearfix">
+        <div className="clearfix">
           <div className="right">
             <span className="muted">Exclude Node.js frames</span>
             <input type="checkbox" onClick={this.handleExcludeToggle.bind(this)}/>
@@ -39,14 +39,15 @@ module.exports = class FrameVisualization extends React.Component {
         </div>
         {
           this.props.frames
-            .filter(frame => !this.state.excludeNodeFrames || frame.important)
+          //!this.state.excludeNodeFrames || frame.important
             .map((frame, i) => {
               if(i > 1) {
                 sameIndent = frame.callFrames.length === this.props.frames[i-1].callFrames.length
                 indentFactor += frame.callFrames.length - this.props.frames[i-1].callFrames.length;
                 if(indentFactor < 0) { indentFactor = 0; }
               }
-              return (
+              const includeFrame = !this.state.excludeNodeFrames || frame.important;
+              return includeFrame ? (
                       <div
                         key={i}
                         className="frame clearfix"
@@ -62,7 +63,7 @@ module.exports = class FrameVisualization extends React.Component {
                             
                         </div>
                       </div>
-                      )
+                      ) : '';
             })
         }
       </div>
