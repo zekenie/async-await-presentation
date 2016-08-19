@@ -20,8 +20,7 @@ class User {
     process.nextTick(() => {
       callback(null, [
         new User({ email: 'friend@friend.friend' }),
-        new User({ email: 'friend2@friend.friend' }),
-        new User({ email: 'friend3@friend.friend' }),
+        new User({ email: 'friend3@friend.friend' })
       ]);
     });
   }

@@ -17,8 +17,7 @@ class User {
   getGmailContacts() {
     return Promise.resolve([
       new User({ email: 'friend@friend.friend' }),
-      new User({ email: 'friend2@friend.friend' }),
-      new User({ email: 'friend3@friend.friend' }),
+      new User({ email: 'friend3@friend.friend' })
     ])
   }
 }

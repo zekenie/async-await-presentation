@@ -83,7 +83,11 @@ module.exports = class Demo {
       breakpoint.important = important;
 
     setTimeout(() => {
-      this.stepInto();
+      if(breakpoint.functionNames[0] === 'require') {
+        this.stepOver();
+      } else {
+        this.stepInto();
+      }
     }, 2);
   }
 
@@ -93,6 +97,10 @@ module.exports = class Demo {
 
   stepOut() {
     this.client.command('Debugger.stepOut');
+  }
+
+  stepOver() {
+    this.client.command('Debugger.stepOver');
   }
 }
 
