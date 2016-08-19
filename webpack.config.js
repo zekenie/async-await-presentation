@@ -2,7 +2,7 @@ module.exports = {
   entry: './src/index.js',
   devtool: 'source-map',
   output: {
-    path: __dirname + '/public',
+    path: __dirname + '/docs',
     filename: './client.js'
   },
   module: {

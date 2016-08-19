@@ -52,8 +52,8 @@
 	const CallbackHell = __webpack_require__(191);
 	const PromiseHell = __webpack_require__(427);
 	const TheFuture = __webpack_require__(429);
-	const Generators = __webpack_require__(430);
-	const Polyfill = __webpack_require__(435);
+	const Generators = __webpack_require__(431);
+	const Polyfill = __webpack_require__(432);
 	// const TheFutureIsNow = require('./slides/06-theFutureIsNow');
 	
 	class App extends React.Component {
@@ -21573,7 +21573,7 @@
 	  getFrames() {
 	    this.reset();
 	    this.setState({ loading: true });
-	    return serverRequest.post('http://104.131.79.144', {
+	    return serverRequest.post('https://oozxgatbzo.localtunnel.me', {
 	      body: { code: this.state.code }
 	    }).then(frames => {
 	      this.setState({ frames, loading: false });
@@ -57381,12 +57381,18 @@
 	  React.createElement(
 	    Snippet,
 	    null,
-	    __webpack_require__(434)
+	    __webpack_require__(430)
 	  )
 	);
 
 /***/ },
 /* 430 */
+/***/ function(module, exports) {
+
+	module.exports = "const {User, Message} = require('async-await-presentation-strawpeople/promises');\nasync function spamFriends(userId) {\n  const user = await User.findById(userId);\n  const gmailContacts = await user.getGmailContacts();\n  return await Promise.all(gmailContacts.map(contact => Message.create({\n    from: user,\n    to: contact.email,\n    message: \"I'd like to add you to my professional network!\"\n  })));\n}\n\nspamFriends(55).then(console.log, console.error);"
+
+/***/ },
+/* 431 */
 /***/ function(module, exports, __webpack_require__) {
 
 	const React = __webpack_require__(1);
@@ -57408,21 +57414,7 @@
 	);
 
 /***/ },
-/* 431 */,
-/* 432 */,
-/* 433 */
-/***/ function(module, exports) {
-
-	module.exports = "const { User, Message } = require('async-await-presentation-strawpeople/promises');\nconst spamFriends = async(function* spamFriendsGenerator(userId) {\n  const user = yield User.findById(userId);\n  const gmailContacts = yield user.getGmailContacts();\n  return yield Promise.all(gmailContacts.map(contact => Message.create({\n    from: user,\n    to: contact.email,\n    message: \"I'd like to add you to my professional network!\"\n  })));\n});\n\nspamFriends(55).then(console.log, console.error);\n\n/** POLYFILL! */\n\nfunction async(generatorFunc) {\n  return function promiseChainBuilder() {\n    /** create generator object */\n    const generator = generatorFunc(...arguments);\n\n    function continuer(valForGenerator) {\n      let result = generator.next(valForGenerator);\n      if (result.done) {\n        return result.value;\n      } else {\n        return result.value.then(continuer);\n      }\n    }\n\n    return continuer();\n  };\n}"
-
-/***/ },
-/* 434 */
-/***/ function(module, exports) {
-
-	module.exports = "const {User, Message} = require('async-await-presentation-strawpeople/promises');\nasync function spamFriends(userId) {\n  const user = await User.findById(userId);\n  const gmailContacts = await user.getGmailContacts();\n  return await Promise.all(gmailContacts.map(contact => Message.create({\n    from: user,\n    to: contact.email,\n    message: \"I'd like to add you to my professional network!\"\n  })));\n}\n\nspamFriends(55).then(console.log, console.error);"
-
-/***/ },
-/* 435 */
+/* 432 */
 /***/ function(module, exports, __webpack_require__) {
 
 	const React = __webpack_require__(1);
@@ -57442,6 +57434,12 @@
 	    __webpack_require__(433)
 	  )
 	);
+
+/***/ },
+/* 433 */
+/***/ function(module, exports) {
+
+	module.exports = "const { User, Message } = require('async-await-presentation-strawpeople/promises');\nconst spamFriends = async(function* spamFriendsGenerator(userId) {\n  const user = yield User.findById(userId);\n  const gmailContacts = yield user.getGmailContacts();\n  return yield Promise.all(gmailContacts.map(contact => Message.create({\n    from: user,\n    to: contact.email,\n    message: \"I'd like to add you to my professional network!\"\n  })));\n});\n\nspamFriends(55).then(console.log, console.error);\n\n/** POLYFILL! */\n\nfunction async(generatorFunc) {\n  return function promiseChainBuilder() {\n    /** create generator object */\n    const generator = generatorFunc(...arguments);\n\n    function continuer(valForGenerator) {\n      let result = generator.next(valForGenerator);\n      if (result.done) {\n        return result.value;\n      } else {\n        return result.value.then(continuer);\n      }\n    }\n\n    return continuer();\n  };\n}"
 
 /***/ }
 /******/ ]);

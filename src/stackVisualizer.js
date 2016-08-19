@@ -82,7 +82,7 @@ class StackVisualizer extends React.Component {
   getFrames() {
     this.reset();
     this.setState({ loading: true })
-    return serverRequest.post('http://104.131.79.144', {
+    return serverRequest.post('https://oozxgatbzo.localtunnel.me', {
       body: { code: this.state.code }
     })
     .then(frames => {
