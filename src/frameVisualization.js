@@ -34,7 +34,10 @@ module.exports = class FrameVisualization extends React.Component {
         <div className="clearfix">
           <div className="right">
             <span className="muted">No Node.js frames?</span>
-            <input type="checkbox" onClick={this.handleExcludeToggle.bind(this)}/>
+            <input
+              type="checkbox"
+              onClick={this.handleExcludeToggle.bind(this)}
+              checked={this.state.excludeNodeFrames} />
           </div>
         </div>
         {

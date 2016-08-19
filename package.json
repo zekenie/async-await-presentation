@@ -12,6 +12,7 @@
   "dependencies": {
     "async-await-presentation-strawpeople": "^1.0.1",
     "body-parser": "^1.15.2",
+    "compression": "^1.6.2",
     "cors": "^2.7.1",
     "css-loader": "^0.23.1",
     "debugger-api": "^0.1.2",

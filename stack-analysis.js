@@ -2,10 +2,11 @@ const express = require('express');
 const app = express();
 const cors = require('cors');
 const fs = require('fs');
+const compression = require('compression');
 const crypto = require('crypto')
 
 const getFrames = require('./docker');
-
+app.use(compression());
 app.listen(process.env.PORT || 9001);
 app.use(cors());
 app.use(require('body-parser').json())
