@@ -1,9 +1,19 @@
+const Message = {
+  /** let's pretend this triggers an email
+      and a db record for our in app message */
+  create(msgObj, cb) {
+    process.nextTick(() => {
+      cb(null, msgObj);
+    });
+  }
+}
+
 class User {
   /** returns an instance of user
       perhaps the result of hitting the db?  */
-  static findById(id, callback) {
+  static findById(id, cb) {
     process.nextTick(() => {
-      callback(null, new this({
+      cb(null, new this({
         id,
         email: 'zeke@zeke.zeke',
         name: 'zeke'
@@ -16,25 +26,24 @@ class User {
   }
 
   /** let's pretend this hit's gmail's server? */
-  getGmailContacts(callback) {
+  getContacts(cb) {
     process.nextTick(() => {
-      callback(null, [
+      cb(null, [
         new User({ email: 'friend@friend.friend' }),
         new User({ email: 'friend3@friend.friend' })
       ]);
     });
   }
-}
 
-const Message = {
-  /** let's pretend this triggers an email
-      and a db record for our in app message */
-  create(msgObj, callback) {
-    process.nextTick(() => {
-      callback(null, msgObj);
-    });
+  sendInvite(contact, message, cb) {
+    Message.create({
+      from: this,
+      to: contact,
+      message: "I'd like to add you to my professional network"
+    }, cb);
   }
 }
+
 
 module.exports = {
   Message,

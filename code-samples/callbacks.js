@@ -1,28 +1,28 @@
-const {User, Message} = require('async-await-presentation-strawpeople/callbacks');
-function spamFriends(userId, callback) {
-  User.findById(userId, function whenUserFound(err, user) {
-    if(err) { return callback(err); }
-    user.getGmailContacts(function whenContactsFound(err, contacts) {
-      if(err) { return callback(err); }
+const {
+  User,
+  Message
+} = require('async-await-presentation-strawpeople/callbacks');
+
+function spamFriends(userId, cb) {
+  User.findById(userId, function userFound(err, user) {
+    if(err) { return cb(err); }
+    user.getContacts(function contactsFound(err, contacts) {
+      if(err) { return cb(err); }
       const messageResults = [];
-      contacts.forEach(function forEachContact(contact) {
-        Message.create({
-          from: user,
-          to: contact.email,
-          message: "I'd like to add you to my professional network!"
-        }, function whenMessageMade(err, message) {
-          if(err) { return callback(err); }
+      contacts.forEach(function eachContact(contact) {
+        user.sendInvite(contact, function(err, message) {
+          if(err) { return cb(err); }
           messageResults.push(message);
           if(messageResults.length === contacts.length) {
-            callback(null, messageResults);
+            cb(null, messageResults);
           }
-        })
+        });
       })
     })
   });
 }
 
-spamFriends(55, function whenFriendsSpammed(err, results) {
+spamFriends(55, function friendsSpammed(err, results) {
   if(err) {
     return console.error("Captain, we've got a problem")
   }

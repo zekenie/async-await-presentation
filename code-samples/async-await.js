@@ -1,12 +1,16 @@
-const {User, Message} = require('async-await-presentation-strawpeople/promises');
+const {
+  User,
+  Message
+} = require('async-await-presentation-strawpeople/promises');
+
 async function spamFriends(userId) {
   const user = await User.findById(userId);
-  const gmailContacts = await user.getGmailContacts();
-  return await Promise.all(gmailContacts.map(contact => Message.create({
-    from: user,
-    to: contact.email,
-    message: "I'd like to add you to my professional network!"
-  })));
+  const contacts = await user.getContacts();
+  const promises = contacts
+    .map(contact => user.sendInvite(contact));
+  return await Promise.all(promises);
 }
 
-spamFriends(55).then(console.log, console.error);
+spamFriends(55)
+  .then(console.log)
+  .catch(console.error);

@@ -21573,7 +21573,7 @@
 	  getFrames() {
 	    this.reset();
 	    this.setState({ loading: true });
-	    return serverRequest.post('https://oozxgatbzo.localtunnel.me', {
+	    return serverRequest.post('http://104.131.79.144', {
 	      body: { code: this.state.code }
 	    }).then(frames => {
 	      this.setState({ frames, loading: false });
@@ -21597,7 +21597,7 @@
 	      ),
 	      React.createElement(
 	        'div',
-	        { className: 'code-container col col-5' },
+	        { className: 'code-container col col-6' },
 	        React.createElement(Codemirror, {
 	          ref: el => this.codeEditor = el,
 	          value: this.state.code,
@@ -21606,7 +21606,7 @@
 	      ),
 	      React.createElement(
 	        'div',
-	        { className: 'col col-4 px2' },
+	        { className: 'col col-3 px2' },
 	        this.state.dirty ? React.createElement(
 	          'button',
 	          { className: 'mx1 p1 btn col-12', onClick: this.getFrames.bind(this) },
@@ -31187,7 +31187,7 @@
 	  }
 	
 	  render() {
-	    let indentFactor = 0;
+	    // let indentFactor = 0;
 	    let sameIndent = false;
 	    return React.createElement(
 	      'div',
@@ -31214,10 +31214,8 @@
 	      .map((frame, i) => {
 	        if (i > 1) {
 	          sameIndent = frame.callFrames.length === this.props.frames[i - 1].callFrames.length;
-	          indentFactor += frame.callFrames.length - this.props.frames[i - 1].callFrames.length;
-	          if (indentFactor < 0) {
-	            indentFactor = 0;
-	          }
+	          // indentFactor += frame.callFrames.length - this.props.frames[i-1].callFrames.length;
+	          // if(indentFactor < 0) { indentFactor = 0; }
 	        }
 	        const includeFrame = !this.state.excludeNodeFrames || frame.important;
 	        return includeFrame ? React.createElement(
@@ -31236,7 +31234,7 @@
 	            ) : ''
 	          ),
 	          React.createElement('div', {
-	            style: { width: 5 + indentFactor * 11 + 'px' },
+	            style: { width: 4 + frame.callFrames.length * 10 + 'px' },
 	            className: classNames(frame, this.props, i) })
 	        ) : '';
 	      })
@@ -32029,7 +32027,7 @@
 	exports.i(__webpack_require__(189), "");
 	
 	// module
-	exports.push([module.id, ".stack-visualizer {\n  position: fixed;\n  top: 0;\n  left: 0;\n  padding: 5px;\n  background: rgba(255, 255, 255, 0.95);\n  height: 100vh;\n  width: 100vw; }\n  .stack-visualizer .close {\n    font-size: 1.3em;\n    position: absolute;\n    right: 15px;\n    cursor: pointer; }\n  .stack-visualizer .stdout {\n    border-radius: 3px;\n    background: #001F3F;\n    color: #2ECC40;\n    font-weight: bold; }\n  .stack-visualizer .code-container {\n    max-height: 94vh;\n    overflow-y: scroll;\n    border: 1px solid #AAAAAA;\n    border-radius: 3px; }\n  .stack-visualizer #stack {\n    width: 22%;\n    border-radius: 3px;\n    position: fixed;\n    bottom: 10px;\n    right: 10px;\n    border: 1px solid #AAAAAA;\n    text-align: right; }\n    .stack-visualizer #stack div {\n      padding: 2px;\n      font-size: 9pt;\n      border-bottom: 1px solid #AAAAAA;\n      margin-bottom: 2px; }\n  .stack-visualizer .frames {\n    height: 94vh;\n    overflow-y: scroll; }\n    .stack-visualizer .frames .frame {\n      transition: background-color, 0.3s;\n      padding: 2px;\n      border-radius: 3px;\n      margin-bottom: 2px;\n      cursor: pointer; }\n      .stack-visualizer .frames .frame .frame-bar {\n        background: #DDDDDD;\n        float: right;\n        border-radius: 3px;\n        height: 3px; }\n        .stack-visualizer .frames .frame .frame-bar.important {\n          height: 18px;\n          font-size: 9pt;\n          padding: 5px;\n          color: white;\n          background: #7FDBFF; }\n        .stack-visualizer .frames .frame .frame-bar.selected {\n          background: white; }\n          .stack-visualizer .frames .frame .frame-bar.selected.important {\n            background: #7FDBFF; }\n      .stack-visualizer .frames .frame:hover {\n        background: #DDDDDD; }\n        .stack-visualizer .frames .frame:hover .muted {\n          color: white; }\n\n* {\n  box-sizing: border-box; }\n\n.slide {\n  height: 98vh; }\n  .slide .code-snippet .syntax-highlighter {\n    margin-top: 10px;\n    max-height: 68vh; }\n  .slide:not(:first-child) {\n    border-top: 2px solid #39CCCC; }\n\nbody {\n  font-family: 'Courier New';\n  margin: 0; }\n\n.btn {\n  padding: 10px;\n  cursor: pointer;\n  background: none;\n  border: 1px solid #FF851B;\n  border-radius: 40px;\n  color: #FF851B; }\n\n.muted {\n  color: #DDDDDD; }\n\n.CodeMirror {\n  height: auto; }\n", ""]);
+	exports.push([module.id, ".stack-visualizer {\n  position: fixed;\n  top: 0;\n  left: 0;\n  padding: 5px;\n  background: rgba(255, 255, 255, 0.95);\n  height: 100vh;\n  width: 100vw; }\n  .stack-visualizer .close {\n    font-size: 1.3em;\n    position: absolute;\n    right: 15px;\n    cursor: pointer; }\n  .stack-visualizer .stdout {\n    border-radius: 3px;\n    background: #001F3F;\n    color: #2ECC40;\n    font-weight: bold; }\n  .stack-visualizer .code-container {\n    max-height: 94vh;\n    overflow-y: scroll;\n    border: 1px solid #AAAAAA;\n    border-radius: 3px; }\n  .stack-visualizer #stack {\n    width: 22%;\n    border-radius: 3px;\n    position: fixed;\n    bottom: 10px;\n    right: 10px;\n    border: 1px solid #AAAAAA;\n    text-align: right; }\n    .stack-visualizer #stack div {\n      padding: 2px;\n      font-size: 9pt;\n      border-bottom: 1px solid #AAAAAA;\n      margin-bottom: 2px; }\n  .stack-visualizer .frames {\n    height: 94vh;\n    overflow-y: scroll; }\n    .stack-visualizer .frames .frame {\n      transition: background-color, 0.3s;\n      padding: 2px;\n      border-radius: 3px;\n      margin-bottom: 2px;\n      cursor: pointer; }\n      .stack-visualizer .frames .frame .frame-bar {\n        background: #DDDDDD;\n        float: right;\n        border-radius: 3px;\n        height: 3px; }\n        .stack-visualizer .frames .frame .frame-bar.important {\n          height: 18px;\n          font-size: 9pt;\n          padding: 5px;\n          color: white;\n          background: #7FDBFF; }\n        .stack-visualizer .frames .frame .frame-bar.selected {\n          background: white; }\n          .stack-visualizer .frames .frame .frame-bar.selected.important {\n            background: #7FDBFF; }\n      .stack-visualizer .frames .frame:hover {\n        background: #DDDDDD; }\n        .stack-visualizer .frames .frame:hover .muted {\n          color: white; }\n\n* {\n  box-sizing: border-box; }\n\n.slide {\n  height: 98vh; }\n  .slide .code-snippet .syntax-highlighter {\n    margin-top: 10px;\n    width: 60%;\n    margin: 0 auto;\n    border-left: 10px solid #FF851B;\n    max-height: 68vh; }\n  .slide:not(:first-child) {\n    border-top: 2px solid #39CCCC; }\n\nbody {\n  font-family: 'Courier New';\n  margin: 0; }\n\n.btn {\n  padding: 10px;\n  cursor: pointer;\n  background: none;\n  border: 1px solid #FF851B;\n  border-radius: 40px;\n  color: #FF851B; }\n\n.muted {\n  color: #DDDDDD; }\n\n.CodeMirror {\n  height: auto; }\n", ""]);
 	
 	// exports
 
@@ -57331,7 +57329,7 @@
 /* 426 */
 /***/ function(module, exports) {
 
-	module.exports = "const { User, Message } = require('async-await-presentation-strawpeople/callbacks');\nfunction spamFriends(userId, callback) {\n  User.findById(userId, function whenUserFound(err, user) {\n    if (err) {\n      return callback(err);\n    }\n    user.getGmailContacts(function whenContactsFound(err, contacts) {\n      if (err) {\n        return callback(err);\n      }\n      const messageResults = [];\n      contacts.forEach(function forEachContact(contact) {\n        Message.create({\n          from: user,\n          to: contact.email,\n          message: \"I'd like to add you to my professional network!\"\n        }, function whenMessageMade(err, message) {\n          if (err) {\n            return callback(err);\n          }\n          messageResults.push(message);\n          if (messageResults.length === contacts.length) {\n            callback(null, messageResults);\n          }\n        });\n      });\n    });\n  });\n}\n\nspamFriends(55, function whenFriendsSpammed(err, results) {\n  if (err) {\n    return console.error(\"Captain, we've got a problem\");\n  }\n  console.log(results);\n});"
+	module.exports = "const {\n  User,\n  Message\n} = require('async-await-presentation-strawpeople/callbacks');\n\nfunction spamFriends(userId, cb) {\n  User.findById(userId, function userFound(err, user) {\n    if (err) {\n      return cb(err);\n    }\n    user.getContacts(function contactsFound(err, contacts) {\n      if (err) {\n        return cb(err);\n      }\n      const messageResults = [];\n      contacts.forEach(function eachContact(contact) {\n        user.sendInvite(contact, function (err, message) {\n          if (err) {\n            return cb(err);\n          }\n          messageResults.push(message);\n          if (messageResults.length === contacts.length) {\n            cb(null, messageResults);\n          }\n        });\n      });\n    });\n  });\n}\n\nspamFriends(55, function friendsSpammed(err, results) {\n  if (err) {\n    return console.error(\"Captain, we've got a problem\");\n  }\n  console.log(results);\n});"
 
 /***/ },
 /* 427 */
@@ -57361,7 +57359,7 @@
 /* 428 */
 /***/ function(module, exports) {
 
-	module.exports = "const { User, Message } = require('async-await-presentation-strawpeople/promises');\nfunction spamFriends(userId) {\n  return User.findById(userId).then(user => Promise.all([user, user.getGmailContacts()]).then(weirdResults => {\n    const [user, contacts] = weirdResults;\n\n    const contactPromises = contacts.map(contact => Message.create({\n      from: user,\n      to: contact.email,\n      message: \"I'd like to add you to my professional network!\"\n    }));\n\n    return Promise.all(contactPromises);\n  }));\n}\n\nspamFriends(55).then(console.log, console.error);"
+	module.exports = "const {\n  User,\n  Message\n} = require('async-await-presentation-strawpeople/promises');\n\nfunction spamFriends(userId) {\n  return User.findById(userId).then(function (user) {\n    return Promise.all([user, user.getContacts()]);\n  }).then(function (weirdResults) {\n    const [user, contacts] = weirdResults;\n    const promises = contacts.map(contact => user.sendInvite(contact));\n\n    return Promise.all(promises);\n  });\n}\n\nspamFriends(55).then(console.log);"
 
 /***/ },
 /* 429 */
@@ -57389,7 +57387,7 @@
 /* 430 */
 /***/ function(module, exports) {
 
-	module.exports = "const {User, Message} = require('async-await-presentation-strawpeople/promises');\nasync function spamFriends(userId) {\n  const user = await User.findById(userId);\n  const gmailContacts = await user.getGmailContacts();\n  return await Promise.all(gmailContacts.map(contact => Message.create({\n    from: user,\n    to: contact.email,\n    message: \"I'd like to add you to my professional network!\"\n  })));\n}\n\nspamFriends(55).then(console.log, console.error);"
+	module.exports = "const {\n  User,\n  Message\n} = require('async-await-presentation-strawpeople/promises');\n\nasync function spamFriends(userId) {\n  const user = await User.findById(userId);\n  const contacts = await user.getContacts();\n  const promises = contacts\n    .map(contact => user.sendInvite(contact));\n  return await Promise.all(promises);\n}\n\nspamFriends(55)\n  .then(console.log)\n  .catch(console.error);"
 
 /***/ },
 /* 431 */
@@ -57439,7 +57437,7 @@
 /* 433 */
 /***/ function(module, exports) {
 
-	module.exports = "const { User, Message } = require('async-await-presentation-strawpeople/promises');\nconst spamFriends = async(function* spamFriendsGenerator(userId) {\n  const user = yield User.findById(userId);\n  const gmailContacts = yield user.getGmailContacts();\n  return yield Promise.all(gmailContacts.map(contact => Message.create({\n    from: user,\n    to: contact.email,\n    message: \"I'd like to add you to my professional network!\"\n  })));\n});\n\nspamFriends(55).then(console.log, console.error);\n\n/** POLYFILL! */\n\nfunction async(generatorFunc) {\n  return function promiseChainBuilder() {\n    /** create generator object */\n    const generator = generatorFunc(...arguments);\n\n    function continuer(valForGenerator) {\n      let result = generator.next(valForGenerator);\n      if (result.done) {\n        return result.value;\n      } else {\n        return result.value.then(continuer);\n      }\n    }\n\n    return continuer();\n  };\n}"
+	module.exports = "const {\n  User,\n  Message\n} = require('async-await-presentation-strawpeople/promises');\n\nconst spamFriends = async(function* spamFriendsGen(userId) {\n  const user = yield User.findById(userId);\n  const contacts = yield user.getContacts();\n  const promises = contacts.map(contact => user.sendInvite(contact));\n  return yield Promise.all(promises);\n});\n\nspamFriends(55).then(console.log).catch(console.error);\n\n/** POLYFILL! */\nfunction async(generatorFn) {\n  return function wrapper() {\n    /** create generator object */\n    const generator = generatorFn(...arguments);\n\n    function continuer(val) {\n      let result = generator.next(val);\n      if (result.done) {\n        return result.value;\n      } else {\n        return result.value.then(continuer);\n      }\n    }\n\n    return continuer();\n  };\n}"
 
 /***/ }
 /******/ ]);

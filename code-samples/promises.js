@@ -1,21 +1,24 @@
-const {User, Message} = require('async-await-presentation-strawpeople/promises');
+const {
+  User,
+  Message
+} = require('async-await-presentation-strawpeople/promises');
+
 function spamFriends(userId) {
   return User.findById(userId)
-    .then(user => Promise.all([
-      user,
-      user.getGmailContacts()
-    ])
-    .then(weirdResults => {
+    .then(function(user) {
+      return Promise.all([
+        user,
+        user.getContacts()
+      ]);
+    })
+    .then(function(weirdResults) {
       const [user, contacts] = weirdResults;
-
-      const contactPromises = contacts.map(contact => Message.create({
-        from: user,
-        to: contact.email,
-        message: "I'd like to add you to my professional network!"
-      }));
+      const promises = contacts
+        .map(contact => user.sendInvite(contact));
       
-      return Promise.all(contactPromises);
-    }));
+      return Promise.all(promises);
+    });
 }
 
-spamFriends(55).then(console.log, console.error);
+spamFriends(55)
+  .then(console.log)

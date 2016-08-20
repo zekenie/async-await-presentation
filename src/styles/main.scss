@@ -12,6 +12,9 @@
   .code-snippet {
     .syntax-highlighter {
       margin-top:10px;
+      width: 60%;
+      margin: 0 auto;
+      border-left: 10px solid $orange;
       max-height: 68vh;
     }
   }

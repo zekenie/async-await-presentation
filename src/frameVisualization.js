@@ -27,7 +27,7 @@ module.exports = class FrameVisualization extends React.Component {
   }
 
   render() {
-    let indentFactor = 0;
+    // let indentFactor = 0;
     let sameIndent = false;
     return (
       <div className="frames mt1">
@@ -46,8 +46,8 @@ module.exports = class FrameVisualization extends React.Component {
             .map((frame, i) => {
               if(i > 1) {
                 sameIndent = frame.callFrames.length === this.props.frames[i-1].callFrames.length
-                indentFactor += frame.callFrames.length - this.props.frames[i-1].callFrames.length;
-                if(indentFactor < 0) { indentFactor = 0; }
+                // indentFactor += frame.callFrames.length - this.props.frames[i-1].callFrames.length;
+                // if(indentFactor < 0) { indentFactor = 0; }
               }
               const includeFrame = !this.state.excludeNodeFrames || frame.important;
               return includeFrame ? (
@@ -61,7 +61,7 @@ module.exports = class FrameVisualization extends React.Component {
                               : '' }
                         </span>
                         <div
-                          style={{ width: (5 + (indentFactor * 11)) + 'px' }}
+                          style={{ width: (4 + (frame.callFrames.length * 10)) + 'px' }}
                           className={classNames(frame, this.props, i)}>
                             
                         </div>

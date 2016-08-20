@@ -82,7 +82,7 @@ class StackVisualizer extends React.Component {
   getFrames() {
     this.reset();
     this.setState({ loading: true })
-    return serverRequest.post('https://oozxgatbzo.localtunnel.me', {
+    return serverRequest.post('http://104.131.79.144', {
       body: { code: this.state.code }
     })
     .then(frames => {
@@ -100,14 +100,14 @@ class StackVisualizer extends React.Component {
     return (
       <div className="clearfix stack-visualizer">
         <a className="close" onClick={this.props.snippet.close.bind(this.props.snippet)}>×</a>
-        <div className="code-container col col-5">
+        <div className="code-container col col-6">
           <Codemirror
             ref={el => this.codeEditor = el} 
             value={this.state.code} 
             options={{ lineNumbers: true }}
             onChange={this.updateCode.bind(this)} />
         </div>
-        <div className="col col-4 px2">
+        <div className="col col-3 px2">
           { this.state.dirty ? 
             <button className="mx1 p1 btn col-12" onClick={this.getFrames.bind(this)}>Get Frames</button>
             : ''

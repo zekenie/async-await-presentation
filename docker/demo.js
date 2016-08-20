@@ -83,11 +83,11 @@ module.exports = class Demo {
       breakpoint.important = important;
 
     setTimeout(() => {
-      if(breakpoint.functionNames[0] === 'require') {
-        this.stepOver();
-      } else {
+      // if(breakpoint.functionNames[0] === 'require') {
+        // this.stepOver();
+      // } else {
         this.stepInto();
-      }
+      // }
     }, 2);
   }
 
