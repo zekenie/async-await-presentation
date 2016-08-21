@@ -23,6 +23,49 @@
   }
 }
 
+
+.event-loop {
+  position: relative;
+  height: 100%;
+  .handlers {
+    margin-left: 13em;
+    div {
+      border: 1px solid $silver;
+      border-radius: 3px;
+    }
+  }
+  .stack{
+    position: absolute;
+    bottom: 10em;
+    width: 13em;
+    border-width: 1px 1px 0 0;
+    border-top-left-radius: 3px;
+    border-style: solid;
+    border-color: $silver;
+    div {
+      border-bottom: 1px solid $silver;
+    }
+  }
+  .queue {
+    position: absolute;
+    width: 10em;
+    left: 13em;
+    transform: rotate(-90deg);
+    transform-origin: top left;
+    border-bottom-right-radius: 3px;
+    border-width: 1px 1px 0 0;
+    border-color: $silver;
+    border-style: solid;
+    // bottom: 0
+    top: 100%;
+    div {
+      border-bottom: 1px solid $silver;
+    }
+
+  }
+
+}
+
 body {
   font-family: 'Courier New';
   margin:0;
