@@ -60,12 +60,12 @@ module.exports = class Demo {
     const interval = setInterval(() => {
       const ultimate = this.frames[this.frames.length - 1];
       const delta = Date.now() - ultimate.time;
-      if(this.client.connected && delta > 500) {
+      if(this.client.connected && delta > 700) {
         clearInterval(interval);
         clearInterval(backupNextInterval);
         this.finish();
       }
-    }, 500);
+    }, 700);
   }
 
   finish() {
@@ -94,7 +94,7 @@ module.exports = class Demo {
       } else {
         this.stepInto();
       }
-    }, 2);
+    }, 3);
   }
 
   stepInto() {
