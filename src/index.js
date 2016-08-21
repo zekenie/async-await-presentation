@@ -4,7 +4,10 @@ const StackVisualizer = require('./stackVisualizer');
 require('!style!css!sass!./styles/main.scss');
 require('!style!css!font-awesome/css/font-awesome.css');
 
+const Snippet = require('./codeSnippet');
+
 const EventLoop = require('./evt-loop');
+const Sync = require('./slides/01-sync');
 const CallbackHell = require('./slides/02-callbackHell');
 const PromiseHell = require('./slides/03-promiseHell');
 const TheFuture = require('./slides/04-theFuture');
@@ -19,6 +22,36 @@ class App extends React.Component {
   render() {
     return (
       <div>
+        <div className="slide center">
+          <br/><br/><br/>
+          <h1>await... async</h1>
+          <h3>@ZekeNierenberg</h3>
+        </div>
+
+        <div className="slide">
+          <h2>4 tasks...</h2>
+          <Snippet showButton={false}>
+          {`db.query('SELECT * FROM ...', handleDB);`}
+          </Snippet>
+
+          <br/>
+
+          <Snippet showButton={false}>
+          {`router.get('/', handleAPI);`}
+          </Snippet>
+
+          <br/>
+
+          <Snippet showButton={false}>
+          {`setTimeout(doUpdates, 250);`}
+          </Snippet>
+          <br/>
+
+          <Snippet showButton={false}>
+          {`email.on('new-message', handleEmail);`}
+          </Snippet>
+        </div>
+
         <div className="slide">
           <EventLoop handlers={[
             { event: 'dbQuery', callback: 'handleDb', probability: 0.5 },
@@ -27,6 +60,7 @@ class App extends React.Component {
             { event: 'email', callback: 'handleEmail', probability: 0.5 }
           ]}/>
         </div>
+        <Sync/>
         <CallbackHell/>
         <PromiseHell/>
         <TheFuture/>

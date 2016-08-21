@@ -50,7 +50,10 @@
 	__webpack_require__(185);
 	__webpack_require__(454);
 	
+	const Snippet = __webpack_require__(211);
+	
 	const EventLoop = __webpack_require__(191);
+	const Sync = __webpack_require__(470);
 	const CallbackHell = __webpack_require__(462);
 	const PromiseHell = __webpack_require__(463);
 	const TheFuture = __webpack_require__(464);
@@ -68,9 +71,59 @@
 	      null,
 	      React.createElement(
 	        'div',
+	        { className: 'slide center' },
+	        React.createElement('br', null),
+	        React.createElement('br', null),
+	        React.createElement('br', null),
+	        React.createElement(
+	          'h1',
+	          null,
+	          'await... async'
+	        ),
+	        React.createElement(
+	          'h3',
+	          null,
+	          '@ZekeNierenberg'
+	        )
+	      ),
+	      React.createElement(
+	        'div',
+	        { className: 'slide' },
+	        React.createElement(
+	          'h2',
+	          null,
+	          '4 tasks...'
+	        ),
+	        React.createElement(
+	          Snippet,
+	          { showButton: false },
+	          `db.query('SELECT * FROM ...', handleDB);`
+	        ),
+	        React.createElement('br', null),
+	        React.createElement(
+	          Snippet,
+	          { showButton: false },
+	          `router.get('/', handleAPI);`
+	        ),
+	        React.createElement('br', null),
+	        React.createElement(
+	          Snippet,
+	          { showButton: false },
+	          `setTimeout(doUpdates, 250);`
+	        ),
+	        React.createElement('br', null),
+	        React.createElement(
+	          Snippet,
+	          { showButton: false },
+	          `email.on('new-message', handleEmail);`
+	        )
+	      ),
+	      React.createElement(
+	        'div',
 	        { className: 'slide' },
 	        React.createElement(EventLoop, { handlers: [{ event: 'dbQuery', callback: 'handleDb', probability: 0.5 }, { event: 'APIRequest', callback: 'handleAPI', probability: 0.25 }, { event: 'timer', callback: 'doUpdates', probability: 0.3 }, { event: 'email', callback: 'handleEmail', probability: 0.5 }] })
 	      ),
+	      React.createElement(Sync, null),
 	      React.createElement(CallbackHell, null),
 	      React.createElement(PromiseHell, null),
 	      React.createElement(TheFuture, null),
@@ -40471,11 +40524,11 @@
 	      this.state.playing ? React.createElement(StackVisualizer, {
 	        snippet: this,
 	        code: this.props.children }) : '',
-	      React.createElement(
+	      this.props.showButton ? React.createElement(
 	        'button',
 	        { onClick: this.play.bind(this), className: 'btn' },
 	        'Play with it!'
-	      ),
+	      ) : "",
 	      React.createElement(
 	        SyntaxHighlighter,
 	        { className: 'syntax-highlighter', language: 'javascript', style: docco },
@@ -40484,6 +40537,14 @@
 	    );
 	  }
 	}
+	
+	Snippet.propTypes = {
+	  showButton: React.PropTypes.bool
+	};
+	
+	Snippet.defaultProps = {
+	  showButton: true
+	};
 	
 	module.exports = Snippet;
 
@@ -65606,7 +65667,7 @@
 	      { className: 'col col-3' },
 	      React.createElement(
 	        Snippet,
-	        null,
+	        { showButton: false },
 	        __webpack_require__(469)
 	      )
 	    ),
@@ -65615,7 +65676,7 @@
 	      { className: 'col col-3' },
 	      React.createElement(
 	        Snippet,
-	        null,
+	        { showButton: false },
 	        __webpack_require__(445)
 	      )
 	    ),
@@ -65624,7 +65685,7 @@
 	      { className: 'col col-3' },
 	      React.createElement(
 	        Snippet,
-	        null,
+	        { showButton: false },
 	        __webpack_require__(447)
 	      )
 	    ),
@@ -65633,7 +65694,7 @@
 	      { className: 'col col-3' },
 	      React.createElement(
 	        Snippet,
-	        null,
+	        { showButton: false },
 	        __webpack_require__(449)
 	      )
 	    )
@@ -65646,6 +65707,30 @@
 /***/ function(module, exports) {
 
 	module.exports = "const {\n  User,\n  Message\n} = require('async-await-presentation-strawpeople/sync');\n\nfunction spamFriends(userId) {\n  const user = User.findById(userId);\n  const contacts = user.getContacts();\n  return contacts.map(function (contact) {\n    return user.sendInvite(contact);\n  });\n}\n\nspamFriends(55);"
+
+/***/ },
+/* 470 */
+/***/ function(module, exports, __webpack_require__) {
+
+	const React = __webpack_require__(1);
+	const Snippet = __webpack_require__(211);
+	
+	module.exports = props => React.createElement(
+	  'div',
+	  { className: 'slide p1' },
+	  React.createElement(
+	    'h1',
+	    null,
+	    'All Blocked Up'
+	  ),
+	  React.createElement(
+	    Snippet,
+	    null,
+	    __webpack_require__(469)
+	  )
+	);
+	
+	//
 
 /***/ }
 /******/ ]);

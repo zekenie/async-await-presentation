@@ -32,7 +32,9 @@ class Snippet extends React.Component {
             snippet={this}
             code={this.props.children} /> 
           : ''}
-        <button onClick={this.play.bind(this)} className="btn">Play with it!</button>
+        { this.props.showButton ?
+          <button onClick={this.play.bind(this)} className="btn">Play with it!</button>
+        : "" }
         <SyntaxHighlighter className="syntax-highlighter" language='javascript' style={docco}>
           {this.props.children}
         </SyntaxHighlighter>
@@ -40,5 +42,13 @@ class Snippet extends React.Component {
     )
   }
 }
+
+Snippet.propTypes = {
+  showButton: React.PropTypes.bool
+};
+
+Snippet.defaultProps = {
+  showButton: true
+};
 
 module.exports = Snippet;
