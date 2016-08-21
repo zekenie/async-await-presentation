@@ -83,12 +83,16 @@
 	        React.createElement(
 	          'h3',
 	          null,
-	          '@ZekeNierenberg'
+	          React.createElement(
+	            'a',
+	            { href: 'https://twitter.com/ZekeNierenberg', target: '_blank' },
+	            '@ZekeNierenberg'
+	          )
 	        )
 	      ),
 	      React.createElement(
 	        'div',
-	        { className: 'slide' },
+	        { className: 'slide m1' },
 	        React.createElement(
 	          'h2',
 	          null,

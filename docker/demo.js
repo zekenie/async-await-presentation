@@ -54,7 +54,7 @@ module.exports = class Demo {
 
   listenForClose() {
     const backupNextInterval = setInterval(() => {
-      this.next();
+      this.stepInto();
     }, 250)
 
     const interval = setInterval(() => {
@@ -110,3 +110,5 @@ module.exports = class Demo {
   }
 }
 
+
+process.on('uncaughtException', console.error);

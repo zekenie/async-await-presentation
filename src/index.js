@@ -25,10 +25,10 @@ class App extends React.Component {
         <div className="slide center">
           <br/><br/><br/>
           <h1>await... async</h1>
-          <h3>@ZekeNierenberg</h3>
+          <h3><a href="https://twitter.com/ZekeNierenberg" target="_blank">@ZekeNierenberg</a></h3>
         </div>
 
-        <div className="slide">
+        <div className="slide m1">
           <h2>4 tasks...</h2>
           <Snippet showButton={false}>
           {`db.query('SELECT * FROM ...', handleDB);`}
