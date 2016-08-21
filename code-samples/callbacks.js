@@ -26,5 +26,5 @@ spamFriends(55, function friendsSpammed(err, results) {
   if(err) {
     return console.error("Captain, we've got a problem")
   }
-  console.log(results);
+  results; // <- Yay
 });

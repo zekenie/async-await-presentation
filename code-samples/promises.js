@@ -20,5 +20,4 @@ function spamFriends(userId) {
     });
 }
 
-spamFriends(55)
-  .then(console.log)
+spamFriends(55) // <- Promise

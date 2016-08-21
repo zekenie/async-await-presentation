@@ -11,6 +11,4 @@ async function spamFriends(userId) {
   return await Promise.all(promises);
 }
 
-spamFriends(55)
-  .then(console.log)
-  .catch(console.error);
+spamFriends(55); // <- Promise

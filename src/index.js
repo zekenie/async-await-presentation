@@ -2,14 +2,15 @@ const React = require('react');
 const ReactDom = require('react-dom');
 const StackVisualizer = require('./stackVisualizer');
 require('!style!css!sass!./styles/main.scss');
+require('!style!css!font-awesome/css/font-awesome.css');
 
 const EventLoop = require('./evt-loop');
-const CallbackHell = require('./slides/01-callbackHell');
-const PromiseHell = require('./slides/02-promiseHell');
-const TheFuture = require('./slides/03-theFuture');
-const Generators = require('./slides/04-generators');
-const Polyfill = require('./slides/05-polyfill');
-// const TheFutureIsNow = require('./slides/06-theFutureIsNow');
+const CallbackHell = require('./slides/02-callbackHell');
+const PromiseHell = require('./slides/03-promiseHell');
+const TheFuture = require('./slides/04-theFuture');
+const Generators = require('./slides/05-generators');
+const Polyfill = require('./slides/06-polyfill');
+const TheFutureIsNow = require('./slides/07-theFutureIsNow');
 
 class App extends React.Component {
   constructor(props) {
@@ -20,10 +21,10 @@ class App extends React.Component {
       <div>
         <div className="slide">
           <EventLoop handlers={[
-            { event: 'click', callback: 'handleClick', probability: 0.5 },
-            { event: 'drag', callback: 'handleDrag', probability: 0.25 },
-            { event: 'timer', callback: 'checkUpdates', probability: 0.3 },
-            { event: 'serverResponse', callback: 'ajaxResponse', probability: 0.5 }
+            { event: 'dbQuery', callback: 'handleDb', probability: 0.5 },
+            { event: 'APIRequest', callback: 'handleAPI', probability: 0.25 },
+            { event: 'timer', callback: 'doUpdates', probability: 0.3 },
+            { event: 'email', callback: 'handleEmail', probability: 0.5 }
           ]}/>
         </div>
         <CallbackHell/>
@@ -31,13 +32,11 @@ class App extends React.Component {
         <TheFuture/>
         <Generators/>
         <Polyfill/>
+        <TheFutureIsNow/>
       </div>
     );
   }
 }
 
-        // <TheFuture/>
-        // <Generators/>
-        // <TheFutureIsNow/>
 
 ReactDom.render(<App/>, document.getElementById('app'));

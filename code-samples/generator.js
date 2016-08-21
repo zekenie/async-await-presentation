@@ -11,10 +11,7 @@ const spamFriends = async(function* spamFriendsGen(userId) {
   return yield Promise.all(promises);
 })
 
-spamFriends(55)
-  .then(console.log)
-  .catch(console.error);
-
+spamFriends(55) // <- Promise
 
 /** POLYFILL! */
 function async(generatorFn) {

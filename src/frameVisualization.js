@@ -61,7 +61,7 @@ module.exports = class FrameVisualization extends React.Component {
                               : '' }
                         </span>
                         <div
-                          style={{ width: (4 + (frame.callFrames.length * 10)) + 'px' }}
+                          style={{ width: (3 + (frame.callFrames.length * 9)) + 'px' }}
                           className={classNames(frame, this.props, i)}>
                             
                         </div>

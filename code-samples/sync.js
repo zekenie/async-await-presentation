@@ -11,4 +11,4 @@ function spamFriends(userId) {
   });
 }
 
-console.log(spamFriends(55));
+spamFriends(55);

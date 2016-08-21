@@ -10,7 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "async-await-presentation-strawpeople": "^1.0.1",
+    "async-await-presentation-strawpeople": "^1.0.2",
     "body-parser": "^1.15.2",
     "chance": "^1.0.4",
     "compression": "^1.6.2",
@@ -19,9 +19,14 @@
     "debugger-api": "^0.1.2",
     "dockerode": "^2.3.0",
     "express": "^4.14.0",
+    "font-awesome": "^4.6.3",
+    "install": "^0.8.1",
     "json-fetcher": "^1.0.8",
+    "npm": "^3.10.6",
     "raw-loader": "^0.5.1",
     "react-syntax-highlighter": "^2.2.0",
+    "react-tabs": "^0.7.0",
+    "recharts": "^0.13.3",
     "repl-promised": "^0.1.0",
     "stream-buffers": "^3.0.1",
     "stream-concat-promise": "^1.0.2",
@@ -36,12 +41,14 @@
     "basscss": "^8.0.2",
     "codemirror": "^5.17.0",
     "colors.css": "^3.0.0",
+    "file-loader": "^0.9.0",
     "node-sass": "^3.8.0",
     "react": "^15.3.0",
     "react-codemirror": "^0.2.6",
     "react-dom": "^15.3.0",
     "sass-loader": "^4.0.0",
     "style-loader": "^0.13.1",
+    "url-loader": "^0.5.7",
     "webpack": "^1.13.1"
   }
 }

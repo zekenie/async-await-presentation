@@ -1,7 +1,9 @@
 @import '~codemirror/lib/codemirror.css';
 @import '~basscss/css/basscss.css';
+// @import '~font-awesome/scss/font-awesome.scss';
 @import './variables.scss';
 @import './stack-visualizer.scss';
+@import './eventLoop.scss';
 * {
   box-sizing: border-box;
 }
@@ -12,7 +14,7 @@
   .code-snippet {
     .syntax-highlighter {
       margin-top:10px;
-      width: 60%;
+      width: 75%;
       margin: 0 auto;
       border-left: 10px solid $orange;
       max-height: 68vh;
@@ -21,50 +23,15 @@
   &:not(:first-child) {
     border-top: 2px solid $teal;
   }
+  .the-future-is-now {
+    .syntax-highlighter {
+      width: 100%;
+      max-height: none;
+      height: 100vh;
+    }
+  }
 }
 
-
-.event-loop {
-  position: relative;
-  height: 100%;
-  .handlers {
-    margin-left: 13em;
-    div {
-      border: 1px solid $silver;
-      border-radius: 3px;
-    }
-  }
-  .stack{
-    position: absolute;
-    bottom: 10em;
-    width: 13em;
-    border-width: 1px 1px 0 0;
-    border-top-left-radius: 3px;
-    border-style: solid;
-    border-color: $silver;
-    div {
-      border-bottom: 1px solid $silver;
-    }
-  }
-  .queue {
-    position: absolute;
-    width: 10em;
-    left: 13em;
-    transform: rotate(-90deg);
-    transform-origin: top left;
-    border-bottom-right-radius: 3px;
-    border-width: 1px 1px 0 0;
-    border-color: $silver;
-    border-style: solid;
-    // bottom: 0
-    top: 100%;
-    div {
-      border-bottom: 1px solid $silver;
-    }
-
-  }
-
-}
 
 body {
   font-family: 'Courier New';
@@ -72,6 +39,9 @@ body {
 }
 
 .btn {
+  &:focus, &:active {
+    outline: none;
+  }
   padding: 10px;
   cursor: pointer;
   background: none;
