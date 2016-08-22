@@ -107,7 +107,7 @@ class StackVisualizer extends React.Component {
             options={{ lineNumbers: true }}
             onChange={this.updateCode.bind(this)} />
         </div>
-        <div className="col col-3 px2">
+        <div className="col col-4 px2">
           { this.state.dirty ? 
             <button className="mx1 p1 btn col-12" onClick={this.getFrames.bind(this)}>Get Frames</button>
             : ''
@@ -125,7 +125,7 @@ class StackVisualizer extends React.Component {
         </div>
 
         { this.state.frames.length > 1 ? 
-          <div className="col col-3">
+          <div className="col col-2">
             <Stdout 
               frames={this.state.frames} 
               frame={this.state.frame}/>

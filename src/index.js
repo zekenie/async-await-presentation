@@ -28,6 +28,24 @@ class App extends React.Component {
           <h3><a href="https://twitter.com/ZekeNierenberg" target="_blank">@ZekeNierenberg</a></h3>
         </div>
 
+        <div className="slide p1">
+          <h2>Dependencies:</h2>
+          <div className="clearfix">
+            <iframe 
+              className="col col-6"
+              width="420" height="315"
+              src="https://www.youtube.com/embed/8aGhZQkoFbQ?autoplay=0">
+            </iframe>
+
+            <iframe 
+              className="col col-6"
+              width="420" height="315"
+              src="https://www.youtube.com/embed/qbKWsbJ76-s?autoplay=0">
+            </iframe>
+
+          </div>
+        </div>
+
         <div className="slide m1">
           <h2>4 tasks...</h2>
           <Snippet showButton={false}>
