@@ -79,6 +79,7 @@ iframe {
 
 .slide {
   height: 100vh;
+  border-top: 2px solid $teal;
   .code-snippet {
     .syntax-highlighter {
       margin-top:10px;
@@ -87,9 +88,6 @@ iframe {
       border-left: 10px solid $orange;
       max-height: 68vh;
     }
-  }
-  &:not(:first-child) {
-    border-top: 2px solid $teal;
   }
   .the-future-is-now {
     .syntax-highlighter {
