@@ -53,16 +53,12 @@ module.exports = class Demo {
   }
 
   listenForClose() {
-    const backupNextInterval = setInterval(() => {
-      this.stepInto();
-    }, 250)
 
     const interval = setInterval(() => {
       const ultimate = this.frames[this.frames.length - 1];
       const delta = Date.now() - ultimate.time;
       if(this.client.connected && delta > 700) {
         clearInterval(interval);
-        clearInterval(backupNextInterval);
         this.finish();
       }
     }, 700);

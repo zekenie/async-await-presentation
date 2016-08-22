@@ -7,7 +7,9 @@ async function spamFriends(userId) {
   const user = await User.findById(userId);
   const contacts = await user.getContacts();
   const promises = contacts
-    .map(contact => user.sendInvite(contact));
+    .map(function(contact) {
+      return user.sendInvite(contact);
+    });
   return await Promise.all(promises);
 }
 

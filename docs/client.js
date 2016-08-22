@@ -65618,7 +65618,7 @@
 /* 457 */
 /***/ function(module, exports) {
 
-	module.exports = "const {\n  User,\n  Message\n} = require('async-await-presentation-strawpeople/promises');\n\nfunction spamFriends(userId) {\n  return User.findById(userId).then(function (user) {\n    return Promise.all([user, user.getContacts()]);\n  }).then(function (weirdResults) {\n    const [user, contacts] = weirdResults;\n    const promises = contacts.map(contact => user.sendInvite(contact));\n\n    return Promise.all(promises);\n  });\n}\n\nspamFriends(55); // <- Promise"
+	module.exports = "const {\n  User,\n  Message\n} = require('async-await-presentation-strawpeople/promises');\n\nfunction spamFriends(userId) {\n  return User.findById(userId).then(function (user) {\n    return Promise.all([user, user.getContacts()]);\n  }).then(function (weirdResults) {\n    const [user, contacts] = weirdResults;\n    const promises = contacts.map(function (contact) {\n      return user.sendInvite(contact);\n    });\n\n    return Promise.all(promises);\n  });\n}\n\nspamFriends(55); // <- Promise"
 
 /***/ },
 /* 458 */
@@ -65646,7 +65646,7 @@
 /* 459 */
 /***/ function(module, exports) {
 
-	module.exports = "const {\n  User,\n  Message\n} = require('async-await-presentation-strawpeople/promises');\n\nasync function spamFriends(userId) {\n  const user = await User.findById(userId);\n  const contacts = await user.getContacts();\n  const promises = contacts\n    .map(contact => user.sendInvite(contact));\n  return await Promise.all(promises);\n}\n\nspamFriends(55); // <- Promise"
+	module.exports = "const {\n  User,\n  Message\n} = require('async-await-presentation-strawpeople/promises');\n\nasync function spamFriends(userId) {\n  const user = await User.findById(userId);\n  const contacts = await user.getContacts();\n  const promises = contacts\n    .map(function(contact) {\n      return user.sendInvite(contact);\n    });\n  return await Promise.all(promises);\n}\n\nspamFriends(55); // <- Promise"
 
 /***/ },
 /* 460 */
@@ -65696,7 +65696,7 @@
 /* 462 */
 /***/ function(module, exports) {
 
-	module.exports = "const {\n  User,\n  Message\n} = require('async-await-presentation-strawpeople/promises');\n\nconst spamFriends = async(function* spamFriendsGen(userId) {\n  const user = yield User.findById(userId);\n  const contacts = yield user.getContacts();\n  const promises = contacts.map(contact => user.sendInvite(contact));\n  return yield Promise.all(promises);\n});\n\nspamFriends(55); // <- Promise\n\n/** POLYFILL! */\nfunction async(generatorFn) {\n  return function wrapper() {\n    /** create generator object */\n    const generator = generatorFn(...arguments);\n\n    function continuer(val) {\n      let result = generator.next(val);\n      if (result.done) {\n        return result.value;\n      } else {\n        return result.value.then(continuer);\n      }\n    }\n\n    return continuer();\n  };\n}"
+	module.exports = "const {\n  User,\n  Message\n} = require('async-await-presentation-strawpeople/promises');\n\nconst spamFriends = async(function* spamFriendsGen(userId) {\n  const user = yield User.findById(userId);\n  const contacts = yield user.getContacts();\n  const promises = contacts.map(function (contact) {\n    return user.sendInvite(contact);\n  });\n  return yield Promise.all(promises);\n});\n\nspamFriends(55); // <- Promise\n\n/** POLYFILL! */\nfunction async(generatorFn) {\n  return function wrapper() {\n    /** create generator object */\n    const generator = generatorFn(...arguments);\n\n    function continuer(val) {\n      let result = generator.next(val);\n      if (result.done) {\n        return result.value;\n      } else {\n        return result.value.then(continuer);\n      }\n    }\n\n    return continuer();\n  };\n}"
 
 /***/ },
 /* 463 */
@@ -65718,6 +65718,10 @@
 	
 	  get numLines() {
 	    return this.lines.length;
+	  }
+	
+	  get numFunctions() {
+	    return this.code.split('function').length;
 	  }
 	
 	  get avgLineLength() {
@@ -65789,8 +65793,8 @@
 	        data: Object.keys(code).map(key => code[key]),
 	        xKey: 'numLines',
 	        xDescription: '# LOC',
-	        yKey: 'avgLineLength',
-	        yDescription: 'Avg Line Length',
+	        yKey: 'numFunctions',
+	        yDescription: '# Functions',
 	        height: 320,
 	        width: 0.85 * window.innerWidth })
 	    )

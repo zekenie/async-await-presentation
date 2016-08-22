@@ -14,7 +14,9 @@ function spamFriends(userId) {
     .then(function(weirdResults) {
       const [user, contacts] = weirdResults;
       const promises = contacts
-        .map(contact => user.sendInvite(contact));
+        .map(function(contact) {
+          return user.sendInvite(contact);
+        });
       
       return Promise.all(promises);
     });

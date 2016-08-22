@@ -7,7 +7,9 @@ const spamFriends = async(function* spamFriendsGen(userId) {
   const user = yield User.findById(userId);
   const contacts = yield user.getContacts();
   const promises = contacts
-    .map(contact => user.sendInvite(contact));
+    .map(function(contact) {
+        return user.sendInvite(contact);
+      });
   return yield Promise.all(promises);
 })
 

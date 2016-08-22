@@ -16,6 +16,10 @@ class Sample {
     return this.lines.length;
   }
 
+  get numFunctions() {
+    return this.code.split('function').length;
+  }
+
   get avgLineLength() {
     return this.lines
       .map(line => line.length)
@@ -65,8 +69,8 @@ module.exports = props => (
               data={Object.keys(code).map(key => code[key])}
               xKey='numLines'
               xDescription="# LOC"
-              yKey='avgLineLength'
-              yDescription="Avg Line Length"
+              yKey='numFunctions'
+              yDescription="# Functions"
               height={320}
               width={0.85 * window.innerWidth}/>
         </div>
