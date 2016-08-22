@@ -151,7 +151,7 @@ class EventLoop extends React.Component {
           stack={this.state.stack}/>
 
         <div className="message message-callstack">CALLSTACK</div>
-        <div className="shove-over mt2">
+        <div className="shove-over pt2">
           <div className="right controls">
             <button onClick={this.togglePlay.bind(this)} className="btn">
               <i 
