@@ -65659,7 +65659,7 @@
 	  ),
 	  React.createElement(
 	    Snippet,
-	    null,
+	    { showButton: false },
 	    __webpack_require__(459)
 	  )
 	);
