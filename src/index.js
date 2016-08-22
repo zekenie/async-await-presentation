@@ -82,6 +82,18 @@ class App extends React.Component {
         <CallbackHell/>
         <PromiseHell/>
         <TheFuture/>
+
+        <div className="slide" style={{overflowY: 'hidden'}}>
+          <div className="clearfix mxn2">
+            <div className="col col-8">
+              <img className="fit" src="/tc39.png"/>
+            </div>
+            <div className="col mt3">
+              <h2>Soon.</h2>
+            </div>
+          </div>
+        </div>
+
         <Generators/>
         <Polyfill/>
         <TheFutureIsNow/>
