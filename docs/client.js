@@ -589,7 +589,11 @@
 	            null,
 	            'The Callstack'
 	          ),
-	          React.createElement(Snippet, { showHighlighter: false })
+	          React.createElement(
+	            Snippet,
+	            null,
+	            __webpack_require__(470)
+	          )
 	        ),
 	        React.createElement(
 	          'div',
@@ -678,7 +682,7 @@
 	          React.createElement(
 	            Snippet,
 	            { showButton: false },
-	            __webpack_require__(470)
+	            __webpack_require__(471)
 	          ),
 	          React.createElement(
 	            'h3',
@@ -688,7 +692,7 @@
 	          React.createElement(
 	            Snippet,
 	            { showButton: false },
-	            __webpack_require__(471)
+	            __webpack_require__(472)
 	          ),
 	          React.createElement(
 	            'h2',
@@ -717,7 +721,7 @@
 	          React.createElement(
 	            Snippet,
 	            { showButton: false },
-	            __webpack_require__(472)
+	            __webpack_require__(473)
 	          )
 	        )
 	      );
@@ -49335,16 +49339,22 @@
 /* 470 */
 /***/ function(module, exports) {
 
-	module.exports = "async function foo() {\n  await bar();\n}"
+	module.exports = "function foo() {}\n\nfunction bar() { foo(); }\n\nfunction baz() { bar(); }\n\nbaz();\nbaz();\nbaz();"
 
 /***/ },
 /* 471 */
 /***/ function(module, exports) {
 
-	module.exports = "var _asyncToGenerator = function (fn) {\n  //...\n};\nvar foo = _asyncToGenerator(function* () {\n  yield bar();\n});"
+	module.exports = "async function foo() {\n  await bar();\n}"
 
 /***/ },
 /* 472 */
+/***/ function(module, exports) {
+
+	module.exports = "var _asyncToGenerator = function (fn) {\n  //...\n};\nvar foo = _asyncToGenerator(function* () {\n  yield bar();\n});"
+
+/***/ },
+/* 473 */
 /***/ function(module, exports) {
 
 	module.exports = "{\n  \"plugins\": [\"transform-async-to-generator\"]\n}"

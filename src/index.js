@@ -49,7 +49,9 @@ class App extends React.Component {
 
         <div className="slide p1">
           <h2>The Callstack</h2>
-          <Snippet showHighlighter={false}/>
+          <Snippet>
+            {require('raw!../code-samples/callstack')}
+          </Snippet>
         </div>
 
         <div className="slide m1">
