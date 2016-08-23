@@ -97,6 +97,26 @@ class App extends React.Component {
         <Generators/>
         <Polyfill/>
         <TheFutureIsNow/>
+        <div className="slide p3 babel">
+          <a href="https://babeljs.io/docs/plugins/transform-async-to-generator/" target="_blank">
+            <img src="/babel.svg" width="159" className="right"/>
+          </a>
+
+          <h2>Example</h2>
+          <h3>In</h3>
+          <Snippet showButton={false}>{require('!!raw!../code-samples/babel/01')}</Snippet>
+
+          <h3>Out</h3>
+          <Snippet showButton={false}>{require('!!raw!../code-samples/babel/02')}</Snippet>
+
+          <h2>Installation</h2>
+          <pre><code>$ npm install babel-plugin-transform-async-to-generator</code></pre>
+
+          <h2>Usage</h2>
+          <p>Add the following line to your .babelrc file:</p>
+
+          <Snippet showButton={false}>{require('raw!../code-samples/babel/03.json')}</Snippet>
+        </div>
       </div>
     );
   }

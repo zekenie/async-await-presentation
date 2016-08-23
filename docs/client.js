@@ -58,8 +58,8 @@
 	const PromiseHell = __webpack_require__(456);
 	const TheFuture = __webpack_require__(458);
 	const Generators = __webpack_require__(460);
-	const Polyfill = __webpack_require__(461);
-	const TheFutureIsNow = __webpack_require__(463);
+	const Polyfill = __webpack_require__(462);
+	const TheFutureIsNow = __webpack_require__(464);
 	
 	class App extends React.Component {
 	  constructor(props) {
@@ -176,7 +176,70 @@
 	      ),
 	      React.createElement(Generators, null),
 	      React.createElement(Polyfill, null),
-	      React.createElement(TheFutureIsNow, null)
+	      React.createElement(TheFutureIsNow, null),
+	      React.createElement(
+	        'div',
+	        { className: 'slide p3 babel' },
+	        React.createElement(
+	          'a',
+	          { href: 'https://babeljs.io/docs/plugins/transform-async-to-generator/', target: '_blank' },
+	          React.createElement('img', { src: '/babel.svg', width: '159', className: 'right' })
+	        ),
+	        React.createElement(
+	          'h2',
+	          null,
+	          'Example'
+	        ),
+	        React.createElement(
+	          'h3',
+	          null,
+	          'In'
+	        ),
+	        React.createElement(
+	          Snippet,
+	          { showButton: false },
+	          __webpack_require__(469)
+	        ),
+	        React.createElement(
+	          'h3',
+	          null,
+	          'Out'
+	        ),
+	        React.createElement(
+	          Snippet,
+	          { showButton: false },
+	          __webpack_require__(470)
+	        ),
+	        React.createElement(
+	          'h2',
+	          null,
+	          'Installation'
+	        ),
+	        React.createElement(
+	          'pre',
+	          null,
+	          React.createElement(
+	            'code',
+	            null,
+	            '$ npm install babel-plugin-transform-async-to-generator'
+	          )
+	        ),
+	        React.createElement(
+	          'h2',
+	          null,
+	          'Usage'
+	        ),
+	        React.createElement(
+	          'p',
+	          null,
+	          'Add the following line to your .babelrc file:'
+	        ),
+	        React.createElement(
+	          Snippet,
+	          { showButton: false },
+	          __webpack_require__(468)
+	        )
+	      )
 	    );
 	  }
 	}
@@ -32131,7 +32194,7 @@
 	exports.i(__webpack_require__(189), "");
 	
 	// module
-	exports.push([module.id, ".stack-visualizer {\n  position: fixed;\n  top: 0;\n  left: 0;\n  padding: 5px;\n  background: rgba(255, 255, 255, 0.95);\n  height: 100vh;\n  width: 100vw; }\n  .stack-visualizer .close {\n    font-size: 1.3em;\n    position: absolute;\n    right: 15px;\n    cursor: pointer; }\n  .stack-visualizer .stdout {\n    border-radius: 3px;\n    background: #001F3F;\n    color: #2ECC40;\n    font-weight: bold; }\n  .stack-visualizer .code-container {\n    max-height: 94vh;\n    overflow-y: scroll;\n    border: 1px solid #AAAAAA;\n    border-radius: 3px; }\n  .stack-visualizer #stack {\n    width: 22%;\n    border-radius: 3px;\n    position: fixed;\n    bottom: 10px;\n    right: 10px;\n    border: 1px solid #AAAAAA;\n    text-align: right; }\n    .stack-visualizer #stack div {\n      padding: 2px;\n      font-size: 9pt;\n      border-bottom: 1px solid #AAAAAA;\n      margin-bottom: 2px; }\n  .stack-visualizer .frames {\n    height: 94vh;\n    overflow-y: scroll; }\n    .stack-visualizer .frames .frame {\n      transition: background-color, 0.3s;\n      padding: 2px;\n      border-radius: 3px;\n      margin-bottom: 2px;\n      cursor: pointer; }\n      .stack-visualizer .frames .frame .frame-bar {\n        background: #DDDDDD;\n        float: right;\n        border-radius: 3px;\n        height: 3px; }\n        .stack-visualizer .frames .frame .frame-bar.important {\n          height: 18px;\n          font-size: 9pt;\n          padding: 5px;\n          color: white;\n          background: #7FDBFF; }\n        .stack-visualizer .frames .frame .frame-bar.selected {\n          background: white; }\n          .stack-visualizer .frames .frame .frame-bar.selected.important {\n            background: #7FDBFF; }\n      .stack-visualizer .frames .frame:hover {\n        background: #DDDDDD; }\n        .stack-visualizer .frames .frame:hover .muted {\n          color: white; }\n\n.event-loop {\n  position: relative;\n  height: 100%; }\n  .event-loop .controls {\n    margin: 0 10px 10px 0; }\n    .event-loop .controls .btn {\n      padding: 5px; }\n  .event-loop .chart {\n    border: 1px solid #DDDDDD;\n    border-radius: 3px;\n    position: relative; }\n    .event-loop .chart .y-label {\n      position: absolute;\n      top: 0;\n      left: -10px;\n      font-size: 0.4em; }\n    .event-loop .chart .bar {\n      background: #2ECC40;\n      border-top-left-radius: 3px;\n      border-top-right-radius: 3px;\n      position: absolute;\n      bottom: 0;\n      float: left;\n      text-align: center; }\n      .event-loop .chart .bar .x-label {\n        width: 100%;\n        position: absolute;\n        bottom: -14px;\n        font-size: 0.4em;\n        transform: rotate(-90deg); }\n  .event-loop div {\n    transition: border-left 0.4s; }\n  .event-loop .shove-over {\n    margin-left: 14em; }\n  .event-loop .settings label {\n    display: block; }\n  .event-loop .handlers .border {\n    border: 1px solid #DDDDDD;\n    border-radius: 3px; }\n  .event-loop .handlers .handler {\n    cursor: pointer; }\n  .event-loop .stack {\n    position: absolute;\n    bottom: 10em;\n    width: 13em;\n    border-width: 1px 1px 0 0;\n    border-top-left-radius: 3px;\n    border-style: solid;\n    border-color: #DDDDDD; }\n    .event-loop .stack div {\n      border-bottom: 1px solid #DDDDDD; }\n  .event-loop .message {\n    color: #DDDDDD;\n    font-size: 0.9em; }\n    .event-loop .message.message-callstack {\n      width: 13em;\n      position: absolute;\n      text-align: center;\n      bottom: 9.5em; }\n    .event-loop .message.message-queue {\n      transform: rotate(-90deg);\n      transform-origin: top left;\n      text-align: center;\n      position: absolute;\n      left: 13em;\n      top: 100%;\n      width: 10em; }\n  .event-loop .queue {\n    position: absolute;\n    width: 10em;\n    left: 13em;\n    transform: rotate(-90deg);\n    transform-origin: top left;\n    border-bottom-right-radius: 3px;\n    border-width: 1px 1px 0 0;\n    border-color: #DDDDDD;\n    border-style: solid;\n    top: 100%; }\n    .event-loop .queue div {\n      border-bottom: 1px solid #DDDDDD; }\n  .event-loop .selected {\n    border-left: 5px solid #FF851B !important; }\n\n* {\n  box-sizing: border-box; }\n\nbody, html {\n  overflow-x: hidden; }\n\n.scatter {\n  border-left: 1px solid #DDDDDD;\n  border-bottom: 1px solid #DDDDDD;\n  position: relative; }\n  .scatter .y-description {\n    position: absolute;\n    text-align: center;\n    transform: rotate(-90deg);\n    transform-origin: bottom left;\n    bottom: 0;\n    font-weight: bold;\n    left: -10px; }\n  .scatter .x-description {\n    position: absolute;\n    text-align: center;\n    font-weight: bold;\n    bottom: -25px;\n    width: 100%; }\n  .scatter .y-label {\n    position: absolute;\n    text-align: right;\n    transform: rotate(-90deg);\n    transform-origin: bottom left;\n    bottom: 0;\n    left: 0; }\n  .scatter .x-label {\n    text-align: right;\n    position: absolute;\n    width: 100%;\n    bottom: -19px;\n    left: 0; }\n  .scatter .point {\n    position: absolute;\n    cursor: pointer;\n    width: 13px;\n    height: 13px;\n    background: #2ECC40;\n    border-radius: 999px; }\n    .scatter .point:hover .point-label {\n      opacity: 1; }\n    .scatter .point .point-label {\n      padding: 0 0 0 25px;\n      font-size: 0.9em;\n      transition: opacity 0.3s;\n      opacity: 0; }\n\niframe {\n  border: none; }\n\n.slide {\n  height: 100vh;\n  border-top: 2px solid #39CCCC; }\n  .slide .code-snippet .syntax-highlighter {\n    margin-top: 10px;\n    width: 75%;\n    margin: 0 auto;\n    border-left: 10px solid #FF851B;\n    max-height: 68vh; }\n  .slide .the-future-is-now .syntax-highlighter {\n    width: 100%;\n    max-height: none;\n    height: 100vh; }\n\nbody {\n  font-family: 'Courier New';\n  margin: 0; }\n\n.btn {\n  padding: 10px;\n  cursor: pointer;\n  background: none;\n  border: 1px solid #FF851B;\n  border-radius: 40px;\n  color: #FF851B; }\n  .btn:focus, .btn:active {\n    outline: none; }\n\n.muted {\n  color: #DDDDDD; }\n\n.CodeMirror {\n  height: auto; }\n", ""]);
+	exports.push([module.id, ".stack-visualizer {\n  position: fixed;\n  top: 0;\n  left: 0;\n  padding: 5px;\n  background: rgba(255, 255, 255, 0.95);\n  height: 100vh;\n  width: 100vw; }\n  .stack-visualizer .close {\n    font-size: 1.3em;\n    position: absolute;\n    right: 15px;\n    cursor: pointer; }\n  .stack-visualizer .stdout {\n    border-radius: 3px;\n    background: #001F3F;\n    color: #2ECC40;\n    font-weight: bold; }\n  .stack-visualizer .code-container {\n    max-height: 94vh;\n    overflow-y: scroll;\n    border: 1px solid #AAAAAA;\n    border-radius: 3px; }\n  .stack-visualizer #stack {\n    width: 16%;\n    border-radius: 3px;\n    position: fixed;\n    bottom: 10px;\n    right: 10px;\n    border: 1px solid #AAAAAA;\n    text-align: right; }\n    .stack-visualizer #stack div {\n      padding: 2px;\n      font-size: 9pt;\n      border-bottom: 1px solid #AAAAAA;\n      margin-bottom: 2px; }\n  .stack-visualizer .frames {\n    height: 94vh;\n    overflow-y: scroll; }\n    .stack-visualizer .frames .frame {\n      transition: background-color, 0.3s;\n      padding: 2px;\n      border-radius: 3px;\n      margin-bottom: 2px;\n      cursor: pointer; }\n      .stack-visualizer .frames .frame .frame-bar {\n        background: #DDDDDD;\n        float: right;\n        border-radius: 3px;\n        height: 3px; }\n        .stack-visualizer .frames .frame .frame-bar.important {\n          height: 18px;\n          font-size: 9pt;\n          padding: 5px;\n          color: white;\n          background: #7FDBFF; }\n        .stack-visualizer .frames .frame .frame-bar.selected {\n          background: white; }\n          .stack-visualizer .frames .frame .frame-bar.selected.important {\n            background: #7FDBFF; }\n      .stack-visualizer .frames .frame:hover {\n        background: #DDDDDD; }\n        .stack-visualizer .frames .frame:hover .muted {\n          color: white; }\n\n.event-loop {\n  position: relative;\n  height: 100%; }\n  .event-loop .controls {\n    margin: 0 10px 10px 0; }\n    .event-loop .controls .btn {\n      padding: 5px; }\n  .event-loop .chart {\n    border: 1px solid #DDDDDD;\n    border-radius: 3px;\n    position: relative; }\n    .event-loop .chart .y-label {\n      position: absolute;\n      top: 0;\n      left: -10px;\n      font-size: 0.4em; }\n    .event-loop .chart .bar {\n      background: #2ECC40;\n      border-top-left-radius: 3px;\n      border-top-right-radius: 3px;\n      position: absolute;\n      bottom: 0;\n      float: left;\n      text-align: center; }\n      .event-loop .chart .bar .x-label {\n        width: 100%;\n        position: absolute;\n        bottom: -14px;\n        font-size: 0.4em;\n        transform: rotate(-90deg); }\n  .event-loop div {\n    transition: border-left 0.4s; }\n  .event-loop .shove-over {\n    margin-left: 14em; }\n  .event-loop .settings label {\n    display: block; }\n  .event-loop .handlers .border {\n    border: 1px solid #DDDDDD;\n    border-radius: 3px; }\n  .event-loop .handlers .handler {\n    cursor: pointer; }\n  .event-loop .stack {\n    position: absolute;\n    bottom: 10em;\n    width: 13em;\n    border-width: 1px 1px 0 0;\n    border-top-left-radius: 3px;\n    border-style: solid;\n    border-color: #DDDDDD; }\n    .event-loop .stack div {\n      border-bottom: 1px solid #DDDDDD; }\n  .event-loop .message {\n    color: #DDDDDD;\n    font-size: 0.9em; }\n    .event-loop .message.message-callstack {\n      width: 13em;\n      position: absolute;\n      text-align: center;\n      bottom: 9.5em; }\n    .event-loop .message.message-queue {\n      transform: rotate(-90deg);\n      transform-origin: top left;\n      text-align: center;\n      position: absolute;\n      left: 13em;\n      top: 100%;\n      width: 10em; }\n  .event-loop .queue {\n    position: absolute;\n    width: 10em;\n    left: 13em;\n    transform: rotate(-90deg);\n    transform-origin: top left;\n    border-bottom-right-radius: 3px;\n    border-width: 1px 1px 0 0;\n    border-color: #DDDDDD;\n    border-style: solid;\n    top: 100%; }\n    .event-loop .queue div {\n      border-bottom: 1px solid #DDDDDD; }\n  .event-loop .selected {\n    border-left: 5px solid #FF851B !important; }\n\n* {\n  box-sizing: border-box; }\n\nbody, html {\n  overflow-x: hidden; }\n\n.scatter {\n  border-left: 1px solid #DDDDDD;\n  border-bottom: 1px solid #DDDDDD;\n  position: relative; }\n  .scatter .y-description {\n    position: absolute;\n    text-align: center;\n    transform: rotate(-90deg);\n    transform-origin: bottom left;\n    bottom: 0;\n    font-weight: bold;\n    left: -10px; }\n  .scatter .x-description {\n    position: absolute;\n    text-align: center;\n    font-weight: bold;\n    bottom: -25px;\n    width: 100%; }\n  .scatter .y-label {\n    position: absolute;\n    text-align: right;\n    transform: rotate(-90deg);\n    transform-origin: bottom left;\n    bottom: 0;\n    left: 0; }\n  .scatter .x-label {\n    text-align: right;\n    position: absolute;\n    width: 100%;\n    bottom: -19px;\n    left: 0; }\n  .scatter .point {\n    position: absolute;\n    cursor: pointer;\n    width: 13px;\n    height: 13px;\n    background: #2ECC40;\n    border-radius: 999px; }\n    .scatter .point:hover .point-label {\n      opacity: 1; }\n    .scatter .point .point-label {\n      padding: 0 0 0 25px;\n      font-size: 0.9em;\n      transition: opacity 0.3s;\n      opacity: 0; }\n\niframe {\n  border: none; }\n\n.slide {\n  height: 100vh;\n  border-top: 2px solid #39CCCC; }\n  .slide .code-snippet .syntax-highlighter {\n    margin-top: 10px;\n    width: 75%;\n    margin: 0 auto;\n    border-left: 10px solid #FF851B;\n    max-height: 68vh; }\n  .slide .the-future-is-now .syntax-highlighter {\n    width: 100%;\n    max-height: none;\n    height: 100vh; }\n  .slide .babel .code-snippet .syntax-highlighter {\n    margin: 0 !important; }\n\nbody {\n  font-family: 'Courier New';\n  margin: 0; }\n\n.btn {\n  padding: 10px;\n  cursor: pointer;\n  background: none;\n  border: 1px solid #FF851B;\n  border-radius: 40px;\n  color: #FF851B; }\n  .btn:focus, .btn:active {\n    outline: none; }\n\n.muted {\n  color: #DDDDDD; }\n\n.CodeMirror {\n  height: auto; }\n", ""]);
 	
 	// exports
 
@@ -32588,21 +32651,23 @@
 	        { onClick: this.play.bind(this), className: 'btn' },
 	        'Play with it!'
 	      ) : "",
-	      React.createElement(
+	      this.props.showHighlighter ? React.createElement(
 	        SyntaxHighlighter,
 	        { className: 'syntax-highlighter', language: 'javascript', style: docco },
 	        this.props.children
-	      )
+	      ) : ""
 	    );
 	  }
 	}
 	
 	Snippet.propTypes = {
-	  showButton: React.PropTypes.bool
+	  showButton: React.PropTypes.bool,
+	  showHighlighter: React.PropTypes.bool
 	};
 	
 	Snippet.defaultProps = {
-	  showButton: true
+	  showButton: true,
+	  showHighlighter: true
 	};
 	
 	module.exports = Snippet;
@@ -65688,12 +65753,18 @@
 	  React.createElement(
 	    Snippet,
 	    null,
-	    ``
+	    __webpack_require__(461)
 	  )
 	);
 
 /***/ },
 /* 461 */
+/***/ function(module, exports) {
+
+	module.exports = "function* fibonacci() {\n  var fn1 = 0;\n  var fn2 = 1;\n  while (true) {\n    var current = fn1;\n    fn1 = fn2;\n    fn2 = current + fn1;\n    yield current;\n  }\n}\n\nconst fibGen = fibonacci();\n\nconsole.log(fibGen.next().value);\nconsole.log(fibGen.next().value);\nconsole.log(fibGen.next().value);\nconsole.log(fibGen.next().value);\nconsole.log(fibGen.next().value);"
+
+/***/ },
+/* 462 */
 /***/ function(module, exports, __webpack_require__) {
 
 	const React = __webpack_require__(1);
@@ -65710,23 +65781,23 @@
 	  React.createElement(
 	    Snippet,
 	    null,
-	    __webpack_require__(462)
+	    __webpack_require__(463)
 	  )
 	);
 
 /***/ },
-/* 462 */
+/* 463 */
 /***/ function(module, exports) {
 
 	module.exports = "const {\n  User,\n  Message\n} = require('async-await-presentation-strawpeople/promises');\n\nconst spamFriends = async(function* spamFriendsGen(userId) {\n  const user = yield User.findById(userId);\n  const contacts = yield user.getContacts();\n  const promises = contacts.map(function (contact) {\n    return user.sendInvite(contact);\n  });\n  return yield Promise.all(promises);\n});\n\nspamFriends(55); // <- Promise\n\n/** POLYFILL! */\nfunction async(generatorFn) {\n  return function wrapper() {\n    /** create generator object */\n    const generator = generatorFn(...arguments);\n\n    function continuer(val) {\n      let result = generator.next(val);\n      if (result.done) {\n        return result.value;\n      } else {\n        return result.value.then(continuer);\n      }\n    }\n\n    return continuer();\n  };\n}"
 
 /***/ },
-/* 463 */
+/* 464 */
 /***/ function(module, exports, __webpack_require__) {
 
 	const React = __webpack_require__(1);
 	const Snippet = __webpack_require__(199);
-	const Scatter = __webpack_require__(464);
+	const Scatter = __webpack_require__(465);
 	
 	class Sample {
 	  constructor(label, code) {
@@ -65824,7 +65895,7 @@
 	);
 
 /***/ },
-/* 464 */
+/* 465 */
 /***/ function(module, exports, __webpack_require__) {
 
 	const React = __webpack_require__(1);
@@ -65880,6 +65951,26 @@
 	    })
 	  );
 	};
+
+/***/ },
+/* 466 */,
+/* 467 */,
+/* 468 */
+/***/ function(module, exports) {
+
+	module.exports = "{\n  \"plugins\": [\"transform-async-to-generator\"]\n}"
+
+/***/ },
+/* 469 */
+/***/ function(module, exports) {
+
+	module.exports = "async function foo() {\n  await bar();\n}"
+
+/***/ },
+/* 470 */
+/***/ function(module, exports) {
+
+	module.exports = "var _asyncToGenerator = function (fn) {\n  //...\n};\nvar foo = _asyncToGenerator(function* () {\n  yield bar();\n});"
 
 /***/ }
 /******/ ]);
