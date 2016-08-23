@@ -11,6 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "async-await-presentation-strawpeople": "^1.0.2",
+    "babel-preset-es2016": "^6.11.3",
     "body-parser": "^1.15.2",
     "chance": "^1.0.4",
     "compression": "^1.6.2",

@@ -198,7 +198,7 @@
 	        React.createElement(
 	          Snippet,
 	          { showButton: false },
-	          __webpack_require__(469)
+	          __webpack_require__(466)
 	        ),
 	        React.createElement(
 	          'h3',
@@ -208,7 +208,7 @@
 	        React.createElement(
 	          Snippet,
 	          { showButton: false },
-	          __webpack_require__(470)
+	          __webpack_require__(467)
 	        ),
 	        React.createElement(
 	          'h2',
@@ -65953,24 +65953,22 @@
 	};
 
 /***/ },
-/* 466 */,
-/* 467 */,
-/* 468 */
-/***/ function(module, exports) {
-
-	module.exports = "{\n  \"plugins\": [\"transform-async-to-generator\"]\n}"
-
-/***/ },
-/* 469 */
+/* 466 */
 /***/ function(module, exports) {
 
 	module.exports = "async function foo() {\n  await bar();\n}"
 
 /***/ },
-/* 470 */
+/* 467 */
 /***/ function(module, exports) {
 
 	module.exports = "var _asyncToGenerator = function (fn) {\n  //...\n};\nvar foo = _asyncToGenerator(function* () {\n  yield bar();\n});"
+
+/***/ },
+/* 468 */
+/***/ function(module, exports) {
+
+	module.exports = "{\n  \"plugins\": [\"transform-async-to-generator\"]\n}"
 
 /***/ }
 /******/ ]);
