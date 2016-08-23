@@ -1,3 +1,4 @@
+'use strict';
 const React = require('react');
 const Codemirror = require('react-codemirror');
 const Stdout = require('./stdout');

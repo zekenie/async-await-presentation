@@ -1,3 +1,4 @@
+'use strict';
 const React = require('react');
 const Chance = require('chance');
 const chance = new Chance();

@@ -1,3 +1,4 @@
+'use strict';
 const React = require('react');
 const SyntaxHighlighter = require('react-syntax-highlighter').default;
 const docco = require('react-syntax-highlighter/dist/styles').docco;

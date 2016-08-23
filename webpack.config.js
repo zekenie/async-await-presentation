@@ -1,5 +1,5 @@
 module.exports = {
-  entry: './src/index.js',
+  entry: ['whatwg-fetch','./src/index.js'],
   devtool: 'source-map',
   output: {
     path: __dirname + '/docs',
@@ -15,10 +15,10 @@ module.exports = {
       },
       {
         test: /\.jsx?$/,
-        exclude: /(node_modules|bower_components)/,
+        exclude: /(code-samples)/,
         loader: 'babel',
         query: {
-          presets: ['react', 'es2016']
+          presets: ['react', 'es2015', 'es2016']
         }
       }
     ]

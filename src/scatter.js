@@ -1,3 +1,4 @@
+'use strict';
 const React = require('react');
 
 const findMax = (props, key) =>  Math.max(...props.data.map(d => d[key]));
