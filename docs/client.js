@@ -583,6 +583,16 @@
 	        ),
 	        React.createElement(
 	          'div',
+	          { className: 'slide p1' },
+	          React.createElement(
+	            'h2',
+	            null,
+	            'The Callstack'
+	          ),
+	          React.createElement(Snippet, { showHighlighter: false })
+	        ),
+	        React.createElement(
+	          'div',
 	          { className: 'slide m1' },
 	          React.createElement(
 	            'h2',

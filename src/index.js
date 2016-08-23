@@ -1,3 +1,4 @@
+'use strict';
 const React = require('react');
 const ReactDom = require('react-dom');
 const StackVisualizer = require('./stackVisualizer');
@@ -44,6 +45,11 @@ class App extends React.Component {
             </iframe>
 
           </div>
+        </div>
+
+        <div className="slide p1">
+          <h2>The Callstack</h2>
+          <Snippet showHighlighter={false}/>
         </div>
 
         <div className="slide m1">
