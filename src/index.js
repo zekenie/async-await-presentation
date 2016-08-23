@@ -27,6 +27,10 @@ class App extends React.Component {
           <br/><br/><br/>
           <h1>await... async</h1>
           <h3><a href="https://twitter.com/ZekeNierenberg" target="_blank">@ZekeNierenberg</a></h3>
+          <br/><br/><br/><br/><br/><br/><br/>
+          <a href="http://www.fullstackacademy.com/" target="_blank">
+            <img src="/fs-logo-red.png" width="150"/>
+          </a>
         </div>
 
         <div className="slide p1">
@@ -124,6 +128,7 @@ class App extends React.Component {
           <p>Add the following line to your .babelrc file:</p>
 
           <Snippet showButton={false}>{require('raw!../code-samples/babel/03.json')}</Snippet>
+          <br/><br/>
         </div>
       </div>
     );

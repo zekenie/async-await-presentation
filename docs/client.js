@@ -558,6 +558,18 @@
 	              { href: 'https://twitter.com/ZekeNierenberg', target: '_blank' },
 	              '@ZekeNierenberg'
 	            )
+	          ),
+	          React.createElement('br', null),
+	          React.createElement('br', null),
+	          React.createElement('br', null),
+	          React.createElement('br', null),
+	          React.createElement('br', null),
+	          React.createElement('br', null),
+	          React.createElement('br', null),
+	          React.createElement(
+	            'a',
+	            { href: 'http://www.fullstackacademy.com/', target: '_blank' },
+	            React.createElement('img', { src: '/fs-logo-red.png', width: '150' })
 	          )
 	        ),
 	        React.createElement(
@@ -722,7 +734,9 @@
 	            Snippet,
 	            { showButton: false },
 	            __webpack_require__(473)
-	          )
+	          ),
+	          React.createElement('br', null),
+	          React.createElement('br', null)
 	        )
 	      );
 	    }
