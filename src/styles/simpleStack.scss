@@ -1,0 +1,39 @@
+.stack-container {
+  position: relative;
+  height: 100%;
+  .simple-stack {
+    width: 100%;
+    position: absolute;
+    bottom: 20%;
+    .stack-member-parent {
+      border: 1px solid $silver;
+      border-radius: 3px;
+    }
+
+
+    div.stack-member {
+      border-bottom: 1px solid $silver;
+    }
+  }
+  
+}
+
+.queue-container {
+  position: relative;
+  height: 100%;
+  .simple-queue {
+    width: 100%;
+    position: absolute;
+    top: 10%;
+    .queue-member-parent {
+      border: 1px solid $silver;
+      border-radius: 3px;
+    }
+
+
+    div.queue-member {
+      border-bottom: 1px solid $silver;
+    }
+  }
+  
+}

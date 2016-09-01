@@ -1,23 +1,11 @@
 'use strict';
 const React = require('react');
-const Chance = require('chance');
-const chance = new Chance();
 const Queue = require('./queue');
 const Chart = require('./chart');
 const Stack = require('./stack');
 const Handlers = require('./handlers');
 const { Tab, Tabs, TabList, TabPanel } = require('react-tabs');
-
-const randomInt = (min, max) => min + Math.round(max * Math.random());
-
-
-
-const randomMethodName = () => chance
-  .sentence({ words: randomInt(1,2) })
-  .slice(0, -1) //take off period
-  .toLowerCase()
-  .split(' ')
-  .join('.');
+const randomMethodName = require('../randomMethodName');
 
 
 class EventLoop extends React.Component {

@@ -1,20 +1,19 @@
 'use strict';
 const React = require('react');
 const ReactDom = require('react-dom');
-const StackVisualizer = require('./stackVisualizer');
-require('!style!css!sass!./styles/main.scss');
+require('!style!css!sass!../styles/main.scss');
 require('!style!css!font-awesome/css/font-awesome.css');
 
-const Snippet = require('./codeSnippet');
+const Snippet = require('../codeSnippet');
 
-const EventLoop = require('./evt-loop');
-const Sync = require('./slides/01-sync');
-const CallbackHell = require('./slides/02-callbackHell');
-const PromiseHell = require('./slides/03-promiseHell');
-const TheFuture = require('./slides/04-theFuture');
-const Generators = require('./slides/05-generators');
-const Polyfill = require('./slides/06-polyfill');
-const TheFutureIsNow = require('./slides/07-theFutureIsNow');
+const EventLoop = require('../evt-loop');
+const Sync = require('./01-sync');
+const CallbackHell = require('./02-callbackHell');
+const PromiseHell = require('./03-promiseHell');
+const TheFuture = require('./04-theFuture');
+const Generators = require('./05-generators');
+const Polyfill = require('./06-polyfill');
+const TheFutureIsNow = require('./07-theFutureIsNow');
 
 class App extends React.Component {
   constructor(props) {
@@ -54,7 +53,7 @@ class App extends React.Component {
         <div className="slide p1">
           <h2>The Callstack</h2>
           <Snippet>
-            {require('raw!../code-samples/callstack')}
+            {require('raw!../../code-samples/callstack')}
           </Snippet>
         </div>
 
@@ -116,10 +115,10 @@ class App extends React.Component {
 
           <h2>Example</h2>
           <h3>In</h3>
-          <Snippet showButton={false}>{require('!!raw!../code-samples/babel/01')}</Snippet>
+          <Snippet showButton={false}>{require('!!raw!../../code-samples/babel/01')}</Snippet>
 
           <h3>Out</h3>
-          <Snippet showButton={false}>{require('!!raw!../code-samples/babel/02')}</Snippet>
+          <Snippet showButton={false}>{require('!!raw!../../code-samples/babel/02')}</Snippet>
 
           <h2>Installation</h2>
           <pre><code>$ npm install babel-plugin-transform-async-to-generator</code></pre>
@@ -127,7 +126,7 @@ class App extends React.Component {
           <h2>Usage</h2>
           <p>Add the following line to your .babelrc file:</p>
 
-          <Snippet showButton={false}>{require('raw!../code-samples/babel/03.json')}</Snippet>
+          <Snippet showButton={false}>{require('raw!../../code-samples/babel/03.json')}</Snippet>
           <br/><br/>
         </div>
       </div>

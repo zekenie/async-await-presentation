@@ -2,7 +2,7 @@
 const React = require('react');
 const Codemirror = require('react-codemirror');
 const Stdout = require('./stdout');
-const serverRequest = require('./serverRequest');
+const serverRequest = require('../serverRequest');
 const FrameVisualization = require('./frameVisualization');
 require('codemirror/mode/javascript/javascript');
 

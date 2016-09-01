@@ -2,7 +2,7 @@
 const React = require('react');
 const SyntaxHighlighter = require('react-syntax-highlighter').default;
 const docco = require('react-syntax-highlighter/dist/styles').docco;
-const StackVisualizer = require('./stackVisualizer')
+const StackVisualizer = require('./callstack')
 class Snippet extends React.Component {
   constructor(props) {
     super(props);

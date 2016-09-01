@@ -1,9 +1,12 @@
 module.exports = {
-  entry: ['whatwg-fetch','./src/index.js'],
+  entry: {
+    asyncAwait: ['whatwg-fetch','./src/async-await/index.js'],
+    promises: ['whatwg-fetch', './src/promises/index.js']
+  },
   devtool: 'source-map',
   output: {
     path: __dirname + '/docs',
-    filename: './client.js'
+    filename: './[name].js'
   },
   module: {
     loaders: [
