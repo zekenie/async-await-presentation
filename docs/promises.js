@@ -67202,11 +67202,11 @@
 	__webpack_require__(180);
 	
 	var SimpleStack = __webpack_require__(482);
-	var SimpleQueue = __webpack_require__(486);
+	var SimpleQueue = __webpack_require__(483);
 	var Snippet = __webpack_require__(188);
-	var Sync = __webpack_require__(483);
-	var CallbackHell = __webpack_require__(484);
-	var PromiseHell = __webpack_require__(485);
+	var Sync = __webpack_require__(484);
+	var CallbackHell = __webpack_require__(485);
+	var PromiseHell = __webpack_require__(486);
 	var EventLoop = __webpack_require__(443);
 	
 	var App = function (_React$Component) {
@@ -67444,90 +67444,6 @@
 
 	'use strict';
 	
-	var React = __webpack_require__(3);
-	var Snippet = __webpack_require__(188);
-	
-	module.exports = function (props) {
-	  return React.createElement(
-	    'div',
-	    { className: 'slide p1' },
-	    React.createElement(
-	      'h1',
-	      null,
-	      'All Blocked Up'
-	    ),
-	    React.createElement(
-	      Snippet,
-	      null,
-	      __webpack_require__(464)
-	    )
-	  );
-	};
-	
-	//
-
-/***/ },
-/* 484 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	var React = __webpack_require__(3);
-	var Snippet = __webpack_require__(188);
-	
-	module.exports = function (props) {
-	  return React.createElement(
-	    'div',
-	    { className: 'slide p1' },
-	    React.createElement(
-	      'h1',
-	      null,
-	      'Callback Hell'
-	    ),
-	    React.createElement(
-	      Snippet,
-	      null,
-	      __webpack_require__(466)
-	    )
-	  );
-	};
-	
-	//
-
-/***/ },
-/* 485 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	var React = __webpack_require__(3);
-	var Snippet = __webpack_require__(188);
-	
-	module.exports = function (props) {
-	  return React.createElement(
-	    'div',
-	    { className: 'slide p1' },
-	    React.createElement(
-	      'h1',
-	      null,
-	      'Promise Hell?'
-	    ),
-	    React.createElement(
-	      Snippet,
-	      null,
-	      __webpack_require__(468)
-	    )
-	  );
-	};
-	
-	//
-
-/***/ },
-/* 486 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -67613,6 +67529,90 @@
 	}(React.Component);
 	
 	module.exports = Queue;
+
+/***/ },
+/* 484 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var React = __webpack_require__(3);
+	var Snippet = __webpack_require__(188);
+	
+	module.exports = function (props) {
+	  return React.createElement(
+	    'div',
+	    { className: 'slide p1' },
+	    React.createElement(
+	      'h1',
+	      null,
+	      'All Blocked Up'
+	    ),
+	    React.createElement(
+	      Snippet,
+	      null,
+	      __webpack_require__(464)
+	    )
+	  );
+	};
+	
+	//
+
+/***/ },
+/* 485 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var React = __webpack_require__(3);
+	var Snippet = __webpack_require__(188);
+	
+	module.exports = function (props) {
+	  return React.createElement(
+	    'div',
+	    { className: 'slide p1' },
+	    React.createElement(
+	      'h1',
+	      null,
+	      'Callback Hell'
+	    ),
+	    React.createElement(
+	      Snippet,
+	      null,
+	      __webpack_require__(466)
+	    )
+	  );
+	};
+	
+	//
+
+/***/ },
+/* 486 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var React = __webpack_require__(3);
+	var Snippet = __webpack_require__(188);
+	
+	module.exports = function (props) {
+	  return React.createElement(
+	    'div',
+	    { className: 'slide p1' },
+	    React.createElement(
+	      'h1',
+	      null,
+	      'Promise Hell?'
+	    ),
+	    React.createElement(
+	      Snippet,
+	      null,
+	      __webpack_require__(468)
+	    )
+	  );
+	};
+	
+	//
 
 /***/ }
 /******/ ]);
