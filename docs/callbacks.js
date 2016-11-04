@@ -45,7 +45,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	__webpack_require__(1);
-	module.exports = __webpack_require__(488);
+	module.exports = __webpack_require__(481);
 
 
 /***/ },
@@ -67174,23 +67174,11 @@
 /* 474 */,
 /* 475 */,
 /* 476 */,
-/* 477 */
-/***/ function(module, exports) {
-
-	module.exports = "function foo() {}\n\nfunction bar() { foo(); }\n\nfunction baz() { bar(); }\n\nbaz();\nbaz();\nbaz();"
-
-/***/ },
+/* 477 */,
 /* 478 */,
 /* 479 */,
 /* 480 */,
-/* 481 */,
-/* 482 */,
-/* 483 */,
-/* 484 */,
-/* 485 */,
-/* 486 */,
-/* 487 */,
-/* 488 */
+/* 481 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -67208,12 +67196,12 @@
 	__webpack_require__(174);
 	__webpack_require__(180);
 	
-	var SimpleStack = __webpack_require__(489);
-	var SimpleQueue = __webpack_require__(490);
+	var SimpleStack = __webpack_require__(482);
+	var SimpleQueue = __webpack_require__(483);
 	var Snippet = __webpack_require__(188);
-	var Sync = __webpack_require__(491);
-	var CallbackHell = __webpack_require__(492);
-	var PromiseHell = __webpack_require__(493);
+	var Sync = __webpack_require__(484);
+	var CallbackHell = __webpack_require__(485);
+	var PromiseHell = __webpack_require__(486);
 	var EventLoop = __webpack_require__(443);
 	
 	var App = function (_React$Component) {
@@ -67240,7 +67228,7 @@
 	          React.createElement(
 	            'h1',
 	            null,
-	            'Promises'
+	            'The Event Loop'
 	          ),
 	          React.createElement(
 	            'h3',
@@ -67285,7 +67273,7 @@
 	          React.createElement(
 	            Snippet,
 	            null,
-	            __webpack_require__(477)
+	            __webpack_require__(487)
 	          )
 	        ),
 	        React.createElement(
@@ -67309,35 +67297,34 @@
 	          React.createElement(
 	            Snippet,
 	            { showButton: false },
-	            'db.query(\'SELECT * FROM ...\', handleDB);'
+	            'document.getElementById(\'foo\').addEventListener(\'click\', userClick);'
 	          ),
 	          React.createElement('br', null),
 	          React.createElement(
 	            Snippet,
 	            { showButton: false },
-	            'router.get(\'/\', handleAPI);'
+	            'document.getElementById(\'bar\').addEventListener(\'keypress\', keyPress);'
 	          ),
 	          React.createElement('br', null),
 	          React.createElement(
 	            Snippet,
 	            { showButton: false },
-	            'setTimeout(doUpdates, 250);'
+	            'fetch(\'http://someApi.com\').then(handleResp);'
 	          ),
 	          React.createElement('br', null),
 	          React.createElement(
 	            Snippet,
 	            { showButton: false },
-	            'email.on(\'new-message\', handleEmail);'
+	            'setTimeout(handleTimer, 250);'
 	          )
 	        ),
 	        React.createElement(
 	          'div',
 	          { className: 'slide' },
-	          React.createElement(EventLoop, { handlers: [{ event: 'dbQuery', callback: 'handleDb', probability: 0.5 }, { event: 'APIRequest', callback: 'handleAPI', probability: 0.25 }, { event: 'timer', callback: 'doUpdates', probability: 0.3 }, { event: 'email', callback: 'handleEmail', probability: 0.5 }] })
+	          React.createElement(EventLoop, { handlers: [{ event: 'click', callback: 'userClick', probability: 0.5 }, { event: 'keypress', callback: 'keyPress', probability: 0.25 }, { event: 'serverRequest', callback: 'handleResp', probability: 0.3 }, { event: 'timer', callback: 'handleTimer', probability: 0.5 }] })
 	        ),
 	        React.createElement(Sync, null),
-	        React.createElement(CallbackHell, null),
-	        React.createElement(PromiseHell, null)
+	        React.createElement(CallbackHell, null)
 	      );
 	    }
 	  }]);
@@ -67348,7 +67335,7 @@
 	ReactDom.render(React.createElement(App, null), document.getElementById('app'));
 
 /***/ },
-/* 489 */
+/* 482 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -67446,7 +67433,7 @@
 	module.exports = Stack;
 
 /***/ },
-/* 490 */
+/* 483 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -67538,7 +67525,7 @@
 	module.exports = Queue;
 
 /***/ },
-/* 491 */
+/* 484 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -67566,7 +67553,7 @@
 	//
 
 /***/ },
-/* 492 */
+/* 485 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -67594,7 +67581,7 @@
 	//
 
 /***/ },
-/* 493 */
+/* 486 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -67621,6 +67608,12 @@
 	
 	//
 
+/***/ },
+/* 487 */
+/***/ function(module, exports) {
+
+	module.exports = "function State(ageLimit) { \n  this.ageLimit = ageLimit;\n}\n\nfunction Drinker(age, state) {\n  this.age = age;\n  this.state = state;\n}\n\nDrinker.prototype.isEligible = function() {\n  return this.age >= this.state.ageLimit;\n};\n\nfunction filterEligibleDrinkers(people) {\n  return people.filter(function(person) {\n    return person.isEligible();\n  });\n}\n\nvar ny = new State(21);\nvar il = new State(21);\nvar jersey = new State(16); // just kidding...\n\nvar drinkers = [ new Drinker(12, ny),\n                 new Drinker(45, il),\n                 new Drinker(23, jersey),\n                 new Drinker(67, ny),\n                 new Drinker(11, il),\n                 new Drinker(13, jersey),\n                 new Drinker(45, il) ];\n\nfilterEligibleDrinkers(drinkers);"
+
 /***/ }
 /******/ ]);
-//# sourceMappingURL=promises.js.map
+//# sourceMappingURL=callbacks.js.map

@@ -1,7 +1,8 @@
 module.exports = {
   entry: {
     asyncAwait: ['whatwg-fetch','./src/async-await/index.js'],
-    promises: ['whatwg-fetch', './src/promises/index.js']
+    promises: ['whatwg-fetch', './src/promises/index.js'],
+    callbacks: ['whatwg-fetch', './src/simple-async/index.js']
   },
   devtool: 'source-map',
   output: {
