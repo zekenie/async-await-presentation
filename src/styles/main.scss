@@ -20,7 +20,14 @@ iframe {
   border: none;
 }
 
+.slides-container {
+  scroll-snap-type: y mandatory;
+  height: 100vh;
+  overflow-y: auto;
+}
+
 .slide {
+  scroll-snap-align: start;
   height: 100vh;
   border-top: 2px solid $teal;
   .code-snippet {

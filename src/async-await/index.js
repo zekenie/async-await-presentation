@@ -21,27 +21,27 @@ class App extends React.Component {
   }
   render() {
     return (
-      <div>
+      <div className="slides-container">
         <div className="slide center">
-          <br/><br/><br/>
+          <br /><br /><br />
           <h1>await... async</h1>
           <h3><a href="https://twitter.com/ZekeNierenberg" target="_blank">@ZekeNierenberg</a></h3>
-          <br/><br/><br/><br/><br/><br/><br/>
+          <br /><br /><br /><br /><br /><br /><br />
           <a href="http://www.fullstackacademy.com/" target="_blank">
-            <img src="/fs-logo-red.png" width="150"/>
+            <img src="/fs-logo-red.png" width="150" />
           </a>
         </div>
 
         <div className="slide p1">
           <h2>Dependencies:</h2>
           <div className="clearfix">
-            <iframe 
+            <iframe
               className="col col-6"
               width="420" height="315"
               src="https://www.youtube.com/embed/8aGhZQkoFbQ?autoplay=0">
             </iframe>
 
-            <iframe 
+            <iframe
               className="col col-6"
               width="420" height="315"
               src="https://www.youtube.com/embed/qbKWsbJ76-s?autoplay=0">
@@ -60,24 +60,24 @@ class App extends React.Component {
         <div className="slide m1">
           <h2>4 tasks...</h2>
           <Snippet showButton={false}>
-          {`db.query('SELECT * FROM ...', handleDB);`}
+            {`db.query('SELECT * FROM ...', handleDB);`}
           </Snippet>
 
-          <br/>
+          <br />
 
           <Snippet showButton={false}>
-          {`router.get('/', handleAPI);`}
+            {`router.get('/', handleAPI);`}
           </Snippet>
 
-          <br/>
+          <br />
 
           <Snippet showButton={false}>
-          {`setTimeout(doUpdates, 250);`}
+            {`setTimeout(doUpdates, 250);`}
           </Snippet>
-          <br/>
+          <br />
 
           <Snippet showButton={false}>
-          {`email.on('new-message', handleEmail);`}
+            {`email.on('new-message', handleEmail);`}
           </Snippet>
         </div>
 
@@ -87,17 +87,17 @@ class App extends React.Component {
             { event: 'APIRequest', callback: 'handleAPI', probability: 0.25 },
             { event: 'timer', callback: 'doUpdates', probability: 0.3 },
             { event: 'email', callback: 'handleEmail', probability: 0.5 }
-          ]}/>
+          ]} />
         </div>
-        <Sync/>
-        <CallbackHell/>
-        <PromiseHell/>
-        <TheFuture/>
+        <Sync />
+        <CallbackHell />
+        <PromiseHell />
+        <TheFuture />
 
-        <div className="slide" style={{overflowY: 'hidden'}}>
+        <div className="slide" style={{ overflowY: 'hidden' }}>
           <div className="clearfix mxn2">
             <div className="col col-8">
-              <img className="fit" src="/tc39.png"/>
+              <img className="fit" src="/tc39.png" />
             </div>
             <div className="col mt3">
               <h2>Soon.</h2>
@@ -105,12 +105,12 @@ class App extends React.Component {
           </div>
         </div>
 
-        <Generators/>
-        <Polyfill/>
-        <TheFutureIsNow/>
+        <Generators />
+        <Polyfill />
+        <TheFutureIsNow />
         <div className="slide p3 babel">
           <a href="https://babeljs.io/docs/plugins/transform-async-to-generator/" target="_blank">
-            <img src="/babel.svg" width="159" className="right"/>
+            <img src="/babel.svg" width="159" className="right" />
           </a>
 
           <h2>Example</h2>
@@ -127,7 +127,7 @@ class App extends React.Component {
           <p>Add the following line to your .babelrc file:</p>
 
           <Snippet showButton={false}>{require('raw!../../code-samples/babel/03.json')}</Snippet>
-          <br/><br/>
+          <br /><br />
         </div>
       </div>
     );
@@ -135,4 +135,4 @@ class App extends React.Component {
 }
 
 
-ReactDom.render(<App/>, document.getElementById('app'));
+ReactDom.render(<App />, document.getElementById('app'));
